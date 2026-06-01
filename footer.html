@@ -1,0 +1,168 @@
+<footer class="site-footer">
+  <style>
+    .site-footer {
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.18), transparent 32%),
+        linear-gradient(135deg, #0f172a, #1f2937, #374151);
+      color: #ffffff;
+      padding: 60px 20px 24px;
+      margin-top: 0;
+    }
+
+    .footer-container {
+      max-width: 1220px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 34px;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .footer-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: #ffffff;
+      color: #111827;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 21px;
+    }
+
+    .footer-box h3,
+    .footer-box h4 {
+      margin: 0 0 18px;
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .footer-box p {
+      color: #d1d5db;
+      line-height: 2;
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .footer-box a {
+      display: block;
+      color: #d1d5db;
+      text-decoration: none;
+      margin-bottom: 11px;
+      font-size: 15px;
+      transition: 0.25s ease;
+    }
+
+    .footer-box a:hover {
+      color: #ffffff;
+      transform: translateX(-4px);
+    }
+
+    .footer-contact p {
+      margin-bottom: 10px;
+    }
+
+    .footer-bottom {
+      max-width: 1220px;
+      margin: 38px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: #d1d5db;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      transition: 0.25s ease;
+      font-weight: 900;
+    }
+
+    .footer-social a:hover {
+      background: #2563eb;
+      transform: translateY(-3px);
+    }
+
+    @media (max-width: 900px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+
+  <div class="footer-container">
+    <div class="footer-box">
+      <div class="footer-brand">
+        <div class="footer-logo">د</div>
+        <h3>ورشة الدب القطبي للصناعة</h3>
+      </div>
+      <p>
+        ورشة متخصصة في حلول التصنيع المعدني والصناعي، نخدم الأفراد والشركات
+        والمقاولين والمصانع والجهات الحكومية بجودة عالية وتنفيذ حسب الطلب.
+      </p>
+    </div>
+
+    <div class="footer-box">
+      <h4>المنتجات</h4>
+      <a href="#products">القبب</a>
+      <a href="#products">آلات طعج الحديد</a>
+      <a href="#products">بوكسات الشحن</a>
+      <a href="#products">المقطورات</a>
+      <a href="#products">البيوت المحمية الزراعية</a>
+    </div>
+
+    <div class="footer-box">
+      <h4>روابط الموقع</h4>
+      <a href="#home">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="#products">المنتجات</a>
+      <a href="#quote">اطلب عرض سعر</a>
+      <a href="#contact">تواصل معنا</a>
+    </div>
+
+    <div class="footer-box footer-contact">
+      <h4>معلومات التواصل</h4>
+      <p>الهاتف: 05XXXXXXXX</p>
+      <p>واتساب: 05XXXXXXXX</p>
+      <p>البريد: info@example.com</p>
+      <p>المدينة: اكتب المدينة هنا</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>جميع الحقوق محفوظة © ورشة الدب القطبي للصناعة</span>
+
+    <div class="footer-social">
+      <a href="#" aria-label="X">X</a>
+      <a href="#" aria-label="Instagram">IG</a>
+      <a href="#" aria-label="TikTok">TT</a>
+    </div>
+  </div>
+</footer>

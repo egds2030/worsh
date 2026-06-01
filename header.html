@@ -1,0 +1,360 @@
+<header class="site-header">
+  <style>
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e5e7eb;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    .header-container {
+      max-width: 1220px;
+      margin: auto;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      text-decoration: none;
+      color: #111827;
+      flex-shrink: 0;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      padding: 3px;
+      background: linear-gradient(135deg, #0f172a, #2563eb, #94a3b8);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.22), 0 0 0 4px rgba(37, 99, 235, 0.08);
+      flex-shrink: 0;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #ffffff;
+      border: 2px solid #ffffff;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 19px;
+      font-weight: 900;
+      color: #111827;
+      white-space: nowrap;
+      line-height: 1.4;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 3px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      color: #374151;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+      transition: 0.25s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      width: 0;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #2563eb, #0f172a);
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #111827;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .header-btn,
+    .mobile-header-btn {
+      padding: 11px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 900;
+      transition: 0.25s ease;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .whatsapp-btn {
+      color: #ffffff;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      box-shadow: 0 10px 24px rgba(34, 197, 94, 0.25);
+    }
+
+    .contact-page-btn {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #111827, #374151, #2563eb);
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.25);
+    }
+
+    .header-btn:hover,
+    .mobile-header-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .mobile-actions {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: none;
+      border-radius: 14px;
+      background: #111827;
+      color: #ffffff;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+
+    .menu-toggle span {
+      width: 22px;
+      height: 2px;
+      background: #ffffff;
+      border-radius: 999px;
+      transition: 0.25s ease;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-backdrop {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 18px;
+        left: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: #ffffff;
+        padding: 14px;
+        border-radius: 22px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+        border: 1px solid #e5e7eb;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-12px);
+        pointer-events: none;
+        transition: 0.25s ease;
+      }
+
+      .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .nav-links a {
+        padding: 14px;
+        border-radius: 14px;
+        font-size: 15px;
+      }
+
+      .nav-links a:hover {
+        background: #f3f4f6;
+      }
+
+      .nav-links a::after {
+        display: none;
+      }
+
+      .header-actions {
+        display: none;
+      }
+
+      .mobile-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 10px;
+      }
+
+      .brand-logo {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-text strong {
+        font-size: 15px;
+      }
+
+      .brand-text span {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .header-container {
+        padding: 10px 14px;
+        gap: 12px;
+      }
+
+      .brand {
+        gap: 9px;
+      }
+
+      .brand-logo {
+        width: 48px;
+        height: 48px;
+      }
+
+      .brand-text strong {
+        font-size: 13px;
+      }
+
+      .brand-text span {
+        display: none;
+      }
+
+      .nav-links {
+        right: 12px;
+        left: 12px;
+      }
+
+      .mobile-actions {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="header-container">
+    <a href="index.html#home" class="brand">
+      <div class="brand-logo">
+        <img src="media/shar.jpeg" alt="شعار ورشة الدب القطبي للصناعة">
+      </div>
+
+      <div class="brand-text">
+        <strong>ورشة الدب القطبي للصناعة</strong>
+        <span>تصنيع معدني وحلول صناعية</span>
+      </div>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html#home">الرئيسية</a>
+      <a href="index.html#about">من نحن</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#quote">اطلب عرض سعر</a>
+      <a href="contact.html">اتصل بنا</a>
+
+      <div class="mobile-actions">
+        <a class="mobile-header-btn whatsapp-btn" href="https://wa.me/966531021644" target="_blank">واتساب</a>
+        <a class="mobile-header-btn contact-page-btn" href="contact.html">اتصل بنا</a>
+      </div>
+    </nav>
+
+    <div class="header-actions">
+      <a class="header-btn whatsapp-btn" href="https://wa.me/966531021644" target="_blank">واتساب</a>
+      <a class="header-btn contact-page-btn" href="contact.html">اتصل بنا</a>
+    </div>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="فتح وإغلاق القائمة" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <script>
+    function initHeaderMenu() {
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      if (!menuToggle || !navLinks) return;
+
+      menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("active");
+        menuToggle.classList.toggle("active");
+      });
+
+      navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          navLinks.classList.remove("active");
+          menuToggle.classList.remove("active");
+        });
+      });
+
+      document.addEventListener("click", function (event) {
+        const isClickInsideHeader = event.target.closest(".site-header");
+
+        if (!isClickInsideHeader) {
+          navLinks.classList.remove("active");
+          menuToggle.classList.remove("active");
+        }
+      });
+    }
+
+    initHeaderMenu();
+  </script>
+</header>

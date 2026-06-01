@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ورشة الدب القطبي للصناعة</title>
+
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      direction: rtl;
+      color: #111827;
+      background: #f8fafc;
+    }
+
+    a { text-decoration: none; }
+    .page { overflow: hidden; }
+
+    .container {
+      max-width: 1220px;
+      margin: auto;
+      padding: 0 22px;
+    }
+
+    .section { padding: 90px 0; }
+
+    .section-head {
+      max-width: 720px;
+      margin: 0 auto 46px;
+      text-align: center;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #e0ecff;
+      color: #1d4ed8;
+      font-size: 14px;
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 14px;
+      font-size: 38px;
+      line-height: 1.45;
+      color: #111827;
+      font-weight: 900;
+    }
+
+    .section-head p {
+      margin: 0;
+      color: #64748b;
+      line-height: 2;
+      font-size: 16px;
+    }
+
+    .main-btn,
+    .secondary-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.25s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: 15px;
+    }
+
+    .main-btn {
+      background: linear-gradient(135deg, #111827, #374151, #2563eb);
+      color: #ffffff;
+      box-shadow: 0 16px 34px rgba(37, 99, 235, 0.22);
+    }
+
+    .secondary-btn {
+      background: rgba(255,255,255,0.95);
+      color: #111827;
+      border: 1px solid rgba(255,255,255,0.45);
+    }
+
+    .main-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0f172a;
+      color: #ffffff;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        linear-gradient(90deg, rgba(15,23,42,0.92), rgba(15,23,42,0.74), rgba(15,23,42,0.38)),
+        radial-gradient(circle at 20% 20%, rgba(37,99,235,0.35), transparent 34%);
+    }
+
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+      background-size: 44px 44px;
+      opacity: 0.55;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 760px;
+      padding: 110px 0 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #ffffff;
+      font-weight: 900;
+      margin-bottom: 22px;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.35;
+      color: #ffffff;
+      font-weight: 900;
+    }
+
+    .hero h1 span { color: #60a5fa; }
+
+    .hero-text {
+      margin: 22px 0 30px;
+      color: #e5e7eb;
+      line-height: 2.1;
+      font-size: 18px;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .trust-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 690px;
+    }
+
+    .trust-item {
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 22px;
+      padding: 17px;
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 22px;
+      color: #ffffff;
+      margin-bottom: 5px;
+      font-weight: 900;
+    }
+
+    .trust-item span {
+      color: #d1d5db;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .video-note {
+      position: absolute;
+      z-index: 4;
+      left: 40px;
+      bottom: 40px;
+      max-width: 320px;
+      padding: 18px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #ffffff;
+      backdrop-filter: blur(12px);
+    }
+
+    .video-note strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .video-note span {
+      color: #e5e7eb;
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .about { background: #ffffff; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .about-panel {
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 35%),
+        linear-gradient(135deg, #111827, #374151);
+      color: #ffffff;
+      border-radius: 32px;
+      padding: 34px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.18);
+    }
+
+    .about-panel h3 {
+      margin: 0 0 18px;
+      font-size: 31px;
+      line-height: 1.5;
+    }
+
+    .about-panel p {
+      margin: 0;
+      color: #e5e7eb;
+      line-height: 2.1;
+    }
+
+    .about-content {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-feature {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .about-feature h4 {
+      margin: 0 0 9px;
+      font-size: 19px;
+      color: #111827;
+      font-weight: 900;
+    }
+
+    .about-feature p {
+      margin: 0;
+      line-height: 1.9;
+      color: #64748b;
+    }
+
+    .products {
+      background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .product-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 30px;
+      padding: 26px;
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
+      transition: 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 5px;
+      background: linear-gradient(90deg, #111827, #2563eb);
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+    }
+
+    .product-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #111827, #475569);
+      color: #ffffff;
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .product-card h3 {
+      margin: 0 0 12px;
+      color: #111827;
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .product-card p {
+      margin: 0 0 20px;
+      color: #64748b;
+      line-height: 1.9;
+    }
+
+    .product-card a {
+      color: #2563eb;
+      font-weight: 900;
+    }
+
+    .gallery { background: #ffffff; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 1fr;
+      gap: 20px;
+    }
+
+    .gallery-card {
+      min-height: 230px;
+      border-radius: 30px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      color: #ffffff;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0f172a, #334155);
+      box-shadow: 0 22px 48px rgba(15, 23, 42, 0.16);
+    }
+
+    .gallery-card h3 {
+      margin: 0 0 10px;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .gallery-card p {
+      margin: 0;
+      color: #e5e7eb;
+      line-height: 1.8;
+    }
+
+    .quote {
+      background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, 0.22), transparent 34%),
+        linear-gradient(135deg, #0f172a, #1f2937, #334155);
+      color: #ffffff;
+    }
+
+    .quote-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .quote-info h2 {
+      margin: 0 0 18px;
+      font-size: 40px;
+      line-height: 1.45;
+      font-weight: 900;
+    }
+
+    .quote-info p {
+      margin: 0 0 24px;
+      color: #d1d5db;
+      line-height: 2;
+    }
+
+    .quote-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .quote-list div {
+      padding: 15px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.12);
+      font-weight: 800;
+    }
+
+    .quote-form {
+      background: #ffffff;
+      padding: 28px;
+      border-radius: 30px;
+      box-shadow: 0 26px 60px rgba(0,0,0,0.24);
+      display: grid;
+      gap: 14px;
+    }
+
+    .quote-form input,
+    .quote-form select,
+    .quote-form textarea {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      background: #f8fafc;
+      padding: 15px;
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      color: #111827;
+      transition: 0.25s ease;
+    }
+
+    .quote-form input:focus,
+    .quote-form select:focus,
+    .quote-form textarea:focus {
+      border-color: #2563eb;
+      background: #ffffff;
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+    }
+
+    .quote-form textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .quote-form button { width: 100%; }
+
+    .contact { background: #f8fafc; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .contact-card {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.07);
+      text-align: center;
+    }
+
+    .contact-card strong {
+      display: block;
+      color: #111827;
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 900;
+    }
+
+    .contact-card span,
+    .contact-card a {
+      color: #64748b;
+      line-height: 1.8;
+      font-weight: 700;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      left: 22px;
+      bottom: 22px;
+      z-index: 999;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #16a34a, #22c55e);
+      color: #ffffff;
+      box-shadow: 0 18px 38px rgba(22, 163, 74, 0.35);
+      transition: 0.25s ease;
+    }
+
+    .whatsapp-float svg {
+      width: 31px;
+      height: 31px;
+      fill: #ffffff;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.03);
+    }
+
+    @media (max-width: 980px) {
+      .hero { min-height: 88vh; }
+
+      .hero-content {
+        padding: 90px 0 70px;
+      }
+
+      .hero h1 { font-size: 38px; }
+
+      .trust-row,
+      .about-grid,
+      .products-grid,
+      .gallery-grid,
+      .quote-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-note {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        margin-top: 24px;
+        max-width: 100%;
+      }
+
+      .section { padding: 65px 0; }
+
+      .section-head h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div id="header-placeholder"></div>
+
+    <main>
+      <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+          <source src="media/fed.mp4" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+
+        <div class="hero-overlay"></div>
+        <div class="hero-pattern"></div>
+
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-badge">تصنيع احترافي حسب الطلب</div>
+
+            <h1>ورشة الدب القطبي <span>للصناعة</span></h1>
+
+            <p class="hero-text">
+              حلول تصنيع معدنية وصناعية للقبب، آلات طعج الحديد، بوكسات الشحن،
+              المقطورات، والبيوت المحمية الزراعية، بجودة عالية وتنفيذ يعطيك
+              الثقة من أول تعامل.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#quote" class="main-btn">اطلب عرض سعر</a>
+              <a href="https://wa.me/966531021644" target="_blank" class="secondary-btn">
+                تواصل واتساب
+              </a>
+            </div>
+
+            <div class="trust-row">
+              <div class="trust-item">
+                <strong>تصنيع</strong>
+                <span>حسب المقاسات المطلوبة</span>
+              </div>
+
+              <div class="trust-item">
+                <strong>جودة</strong>
+                <span>تنفيذ متين وعملي</span>
+              </div>
+
+              <div class="trust-item">
+                <strong>ثقة</strong>
+                <span>للأفراد والشركات</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-note">
+            <strong>بدون أسعار ثابتة</strong>
+            <span>يتم تحديد السعر حسب المقاس، نوع المنتج، والمواصفات المطلوبة.</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">من نحن</span>
+            <h2>ورشة صناعية بهوية قوية وتنفيذ يعتمد عليه</h2>
+            <p>نركز على تقديم حلول تصنيع واضحة، عملية، ومناسبة لاحتياجات العملاء.</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="about-panel">
+              <h3>نصنع منتجات تخدم احتياجك الفعلي</h3>
+              <p>
+                نعمل على تنفيذ المنتجات المعدنية والصناعية حسب الطلب، مع مراعاة
+                المتانة، الاستخدام العملي، ودقة التفاصيل في كل منتج.
+              </p>
+            </div>
+
+            <div class="about-content">
+              <div class="about-feature">
+                <h4>حلول مخصصة</h4>
+                <p>ننفذ المنتجات حسب المقاسات والمواصفات المناسبة لكل عميل.</p>
+              </div>
+
+              <div class="about-feature">
+                <h4>مناسب لقطاعات متعددة</h4>
+                <p>نخدم الأفراد، الشركات، المقاولين، المصانع، والجهات الحكومية.</p>
+              </div>
+
+              <div class="about-feature">
+                <h4>طلب عرض سعر مباشر</h4>
+                <p>بدون عرض أسعار ثابتة، يتم التواصل لتحديد التفاصيل وتقديم السعر المناسب.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section products" id="products">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">المنتجات</span>
+            <h2>منتجاتنا الأساسية</h2>
+            <p>المنتجات معروضة للتعريف، ويمكن طلب عرض سعر حسب المواصفات المطلوبة.</p>
+          </div>
+
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-icon">⌂</div>
+              <h3>القبب</h3>
+              <p>تصنيع قبب بتصاميم متعددة وجودة مناسبة للاستخدامات المختلفة.</p>
+              <a href="#quote">طلب عرض سعر</a>
+            </div>
+
+            <div class="product-card">
+              <div class="product-icon">⚙</div>
+              <h3>آلات طعج الحديد</h3>
+              <p>حلول صناعية لثني وطعج الحديد حسب طبيعة العمل والاستخدام.</p>
+              <a href="#quote">طلب عرض سعر</a>
+            </div>
+
+            <div class="product-card">
+              <div class="product-icon">▣</div>
+              <h3>بوكسات الشحن</h3>
+              <p>بوكسات متينة وعملية للشحن والتخزين والاستخدام الميداني.</p>
+              <a href="#quote">طلب عرض سعر</a>
+            </div>
+
+            <div class="product-card">
+              <div class="product-icon">▰</div>
+              <h3>المقطورات</h3>
+              <p>تصنيع مقطورات حسب الطلب بمواصفات تناسب الاستخدام العملي.</p>
+              <a href="#quote">طلب عرض سعر</a>
+            </div>
+
+            <div class="product-card">
+              <div class="product-icon">☘</div>
+              <h3>بيوت محمية زراعية</h3>
+              <p>تصنيع بيوت محمية زراعية بمقاسات وتجهيزات متنوعة.</p>
+              <a href="#quote">طلب عرض سعر</a>
+            </div>
+
+            <div class="product-card">
+              <div class="product-icon">＋</div>
+              <h3>تصنيع حسب الطلب</h3>
+              <p>تنفيذ منتجات خاصة حسب احتياج العميل والمواصفات المطلوبة.</p>
+              <a href="#quote">طلب عرض سعر</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section gallery" id="gallery">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">المعرض</span>
+            <h2>واجهة مناسبة لعرض الأعمال والمنتجات</h2>
+            <p>يمكن لاحقًا ربط هذا القسم بلوحة تحكم لإضافة الصور والمنتجات بسهولة.</p>
+          </div>
+
+          <div class="gallery-grid">
+            <div class="gallery-card">
+              <h3>منتجات معدنية</h3>
+              <p>قسم مخصص لصور المنتجات الصناعية.</p>
+            </div>
+
+            <div class="gallery-card">
+              <h3>معدات وتجهيزات</h3>
+              <p>عرض واضح للأعمال والتجهيزات.</p>
+            </div>
+
+            <div class="gallery-card">
+              <h3>حلول حسب الطلب</h3>
+              <p>تصاميم تناسب احتياج العميل.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section quote" id="quote">
+        <div class="container">
+          <div class="quote-grid">
+            <div class="quote-info">
+              <h2>اطلب عرض سعر مناسب لاحتياجك</h2>
+              <p>
+                أرسل نوع المنتج والمواصفات المطلوبة، وسيتم التواصل معك عبر واتساب
+                لتقديم عرض السعر المناسب.
+              </p>
+
+              <div class="quote-list">
+                <div>استقبال طلبات الأفراد والشركات</div>
+                <div>تحديد السعر حسب المقاس والمواصفات</div>
+                <div>تواصل مباشر وسريع عبر واتساب</div>
+              </div>
+            </div>
+
+            <form class="quote-form" onsubmit="sendQuote(event)">
+              <input type="text" id="name" placeholder="الاسم الكامل" required>
+              <input type="tel" id="phone" placeholder="رقم الجوال" required>
+
+              <select id="product" required>
+                <option value="">اختر المنتج</option>
+                <option>القبب</option>
+                <option>آلات طعج الحديد</option>
+                <option>بوكسات الشحن</option>
+                <option>المقطورات</option>
+                <option>بيوت محمية زراعية</option>
+                <option>تصنيع حسب الطلب</option>
+              </select>
+
+              <textarea id="details" placeholder="اكتب تفاصيل الطلب والمقاسات المطلوبة"></textarea>
+
+              <button class="main-btn" type="submit">إرسال الطلب عبر واتساب</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="container">
+          <div class="section-head">
+            <span class="section-kicker">تواصل معنا</span>
+            <h2>يسعدنا استقبال استفسارك</h2>
+            <p>يمكن التواصل معنا مباشرة لمعرفة تفاصيل المنتجات وطلب عرض سعر.</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card">
+              <strong>الهاتف</strong>
+              <a href="tel:+966531021644">0531021644</a>
+            </div>
+
+            <div class="contact-card">
+              <strong>واتساب</strong>
+              <a href="https://wa.me/966531021644" target="_blank">0531021644</a>
+            </div>
+
+            <div class="contact-card">
+              <strong>البريد الإلكتروني</strong>
+              <a href="mailto:info@dobksa.com">info@dobksa.com</a>
+            </div>
+
+            <div class="contact-card">
+              <strong>المدينة</strong>
+              <span>اكتب المدينة هنا</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <a class="whatsapp-float" href="https://wa.me/966531021644" target="_blank" aria-label="تواصل واتساب">
+      <svg viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M16.02 3C8.86 3 3.03 8.8 3.03 15.93c0 2.28.6 4.5 1.75 6.46L3 29l6.78-1.73a13.05 13.05 0 0 0 6.24 1.59C23.18 28.86 29 23.06 29 15.93S23.18 3 16.02 3Zm0 23.66c-1.92 0-3.8-.52-5.43-1.5l-.39-.23-4.02 1.03 1.07-3.9-.26-.4a10.62 10.62 0 0 1-1.65-5.73c0-5.9 4.8-10.7 10.68-10.7 5.9 0 10.7 4.8 10.7 10.7 0 5.9-4.8 10.73-10.7 10.73Zm5.86-8.02c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.86-1.6-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.15-.14.32-.38.48-.57.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.7s1.16 3.13 1.32 3.35c.16.21 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.24 1.48.21 2.04.13.62-.1 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37Z"/>
+      </svg>
+    </a>
+
+  </div>
+
+  <script>
+    async function loadHeader() {
+      try {
+        const response = await fetch("header.html");
+
+        if (!response.ok) {
+          throw new Error("لم يتم العثور على header.html");
+        }
+
+        const html = await response.text();
+
+        document.getElementById("header-placeholder").innerHTML = html;
+
+        const menuToggle = document.getElementById("menuToggle");
+        const navLinks = document.getElementById("navLinks");
+
+        if (menuToggle && navLinks) {
+          menuToggle.addEventListener("click", function () {
+            navLinks.classList.toggle("active");
+          });
+
+          navLinks.querySelectorAll("a").forEach(function (link) {
+            link.addEventListener("click", function () {
+              navLinks.classList.remove("active");
+            });
+          });
+        }
+      } catch (error) {
+        console.error("تعذر تحميل الشريط العلوي:", error);
+      }
+    }
+
+    loadHeader();
+
+    function sendQuote(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const product = document.getElementById("product").value;
+      const details = document.getElementById("details").value.trim();
+
+      if (!name || !phone || !product) {
+        alert("يرجى تعبئة الاسم ورقم الجوال واختيار المنتج");
+        return;
+      }
+
+      const whatsappNumber = "966531021644";
+
+      const message =
+        "طلب عرض سعر جديد%0A" +
+        "الاسم: " + encodeURIComponent(name) + "%0A" +
+        "رقم الجوال: " + encodeURIComponent(phone) + "%0A" +
+        "المنتج: " + encodeURIComponent(product) + "%0A" +
+        "التفاصيل: " + encodeURIComponent(details || "لا توجد تفاصيل إضافية");
+
+      window.open("https://wa.me/" + whatsappNumber + "?text=" + message, "_blank");
+    }
+  </script>
+</body>
+</html>
