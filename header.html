@@ -24,15 +24,16 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 13px;
+      gap: 12px;
       text-decoration: none;
       color: #111827;
       flex-shrink: 0;
+      min-width: 0;
     }
 
     .brand-logo {
-      width: 58px;
-      height: 58px;
+      width: 54px;
+      height: 54px;
       border-radius: 50%;
       padding: 3px;
       background: linear-gradient(135deg, #0f172a, #2563eb, #94a3b8);
@@ -50,13 +51,17 @@
       border: 2px solid #ffffff;
     }
 
+    .brand-text {
+      min-width: 0;
+    }
+
     .brand-text strong {
       display: block;
-      font-size: 19px;
+      font-size: 21px;
       font-weight: 900;
       color: #111827;
       white-space: nowrap;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     .brand-text span {
@@ -150,13 +155,13 @@
       border: none;
       border-radius: 14px;
       background: #111827;
-      color: #ffffff;
       cursor: pointer;
       align-items: center;
       justify-content: center;
       flex-direction: column;
       gap: 5px;
       flex-shrink: 0;
+      box-shadow: 0 12px 24px rgba(15, 23, 42, 0.2);
     }
 
     .menu-toggle span {
@@ -179,28 +184,36 @@
       transform: translateY(-7px) rotate(-45deg);
     }
 
-    .mobile-backdrop {
-      display: none;
-    }
-
     @media (max-width: 980px) {
+      .header-container {
+        gap: 16px;
+      }
+
       .menu-toggle {
         display: flex;
+        order: 1;
+      }
+
+      .brand {
+        order: 2;
+        flex: 1;
+        justify-content: flex-end;
       }
 
       .nav-links {
-        position: absolute;
-        top: calc(100% + 12px);
+        position: fixed;
+        top: 86px;
         right: 18px;
         left: 18px;
+        z-index: 1001;
         display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 0;
-        background: #ffffff;
-        padding: 14px;
-        border-radius: 22px;
-        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+        background: rgba(255, 255, 255, 0.98);
+        padding: 18px;
+        border-radius: 24px;
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.22);
         border: 1px solid #e5e7eb;
         opacity: 0;
         visibility: hidden;
@@ -217,9 +230,10 @@
       }
 
       .nav-links a {
-        padding: 14px;
-        border-radius: 14px;
-        font-size: 15px;
+        padding: 15px 16px;
+        border-radius: 16px;
+        font-size: 18px;
+        color: #111827;
       }
 
       .nav-links a:hover {
@@ -236,9 +250,16 @@
 
       .mobile-actions {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 10px;
-        margin-top: 10px;
+        margin-top: 12px;
+      }
+
+      .mobile-header-btn {
+        display: block;
+        padding: 14px 16px;
+        font-size: 17px;
+        border-radius: 18px;
       }
 
       .brand-logo {
@@ -247,18 +268,18 @@
       }
 
       .brand-text strong {
-        font-size: 15px;
+        font-size: 19px;
       }
 
       .brand-text span {
-        font-size: 11px;
+        display: none;
       }
     }
 
     @media (max-width: 430px) {
       .header-container {
         padding: 10px 14px;
-        gap: 12px;
+        gap: 10px;
       }
 
       .brand {
@@ -266,51 +287,69 @@
       }
 
       .brand-logo {
-        width: 48px;
-        height: 48px;
+        width: 50px;
+        height: 50px;
       }
 
       .brand-text strong {
-        font-size: 13px;
-      }
-
-      .brand-text span {
-        display: none;
+        font-size: 17px;
+        max-width: 210px;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .nav-links {
+        top: 78px;
         right: 12px;
         left: 12px;
       }
+    }
 
-      .mobile-actions {
-        grid-template-columns: 1fr;
+    @media (max-width: 360px) {
+      .brand-text strong {
+        font-size: 15px;
+        max-width: 175px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+      }
+
+      .menu-toggle {
+        width: 44px;
+        height: 44px;
       }
     }
   </style>
 
   <div class="header-container">
-    <a href="index.html#home" class="brand">
-      <div class="brand-logo">
-        <img src="media/shar.jpeg" alt="شعار ورشة الدب القطبي للصناعة">
-      </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="فتح وإغلاق القائمة" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
+    <a href="index.html#home" class="brand">
       <div class="brand-text">
         <strong>ورشة الدب القطبي للصناعة</strong>
         <span>تصنيع معدني وحلول صناعية</span>
+      </div>
+
+      <div class="brand-logo">
+        <img src="media/shar.jpeg" alt="شعار ورشة الدب القطبي للصناعة">
       </div>
     </a>
 
     <nav class="nav-links" id="navLinks">
       <a href="index.html#home">الرئيسية</a>
-      <a href="index.html#about">من نحن</a>
       <a href="index.html#products">المنتجات</a>
       <a href="index.html#quote">اطلب عرض سعر</a>
+      <a href="about.html">من نحن</a>
       <a href="contact.html">اتصل بنا</a>
 
       <div class="mobile-actions">
-        <a class="mobile-header-btn whatsapp-btn" href="https://wa.me/966531021644" target="_blank">واتساب</a>
-        <a class="mobile-header-btn contact-page-btn" href="contact.html">اتصل بنا</a>
+        <a class="mobile-header-btn whatsapp-btn" href="https://wa.me/966531021644" target="_blank">واتساب الآن</a>
       </div>
     </nav>
 
@@ -318,12 +357,6 @@
       <a class="header-btn whatsapp-btn" href="https://wa.me/966531021644" target="_blank">واتساب</a>
       <a class="header-btn contact-page-btn" href="contact.html">اتصل بنا</a>
     </div>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="فتح وإغلاق القائمة" type="button">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </div>
 
   <script>
@@ -333,26 +366,28 @@
 
       if (!menuToggle || !navLinks) return;
 
-      menuToggle.addEventListener("click", function () {
+      function closeMenu() {
+        navLinks.classList.remove("active");
+        menuToggle.classList.remove("active");
+      }
+
+      menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
         navLinks.classList.toggle("active");
         menuToggle.classList.toggle("active");
       });
 
+      navLinks.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+
       navLinks.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-          navLinks.classList.remove("active");
-          menuToggle.classList.remove("active");
-        });
+        link.addEventListener("click", closeMenu);
       });
 
-      document.addEventListener("click", function (event) {
-        const isClickInsideHeader = event.target.closest(".site-header");
+      document.addEventListener("click", closeMenu);
 
-        if (!isClickInsideHeader) {
-          navLinks.classList.remove("active");
-          menuToggle.classList.remove("active");
-        }
-      });
+      window.addEventListener("scroll", closeMenu);
     }
 
     initHeaderMenu();

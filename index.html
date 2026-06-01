@@ -26,11 +26,11 @@
       padding: 0 22px;
     }
 
-    .section { padding: 90px 0; }
+    .section { padding: 85px 0; }
 
     .section-head {
-      max-width: 720px;
-      margin: 0 auto 46px;
+      max-width: 760px;
+      margin: 0 auto 44px;
       text-align: center;
     }
 
@@ -66,8 +66,8 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      min-height: 48px;
-      padding: 12px 22px;
+      min-height: 50px;
+      padding: 12px 24px;
       border-radius: 999px;
       font-weight: 900;
       transition: 0.25s ease;
@@ -90,9 +90,7 @@
     }
 
     .main-btn:hover,
-    .secondary-btn:hover {
-      transform: translateY(-3px);
-    }
+    .secondary-btn:hover { transform: translateY(-3px); }
 
     .hero {
       position: relative;
@@ -104,13 +102,36 @@
       color: #ffffff;
     }
 
-    .hero-video {
+    .hero-slider {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    .hero-slide {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1s ease, transform 8s ease;
+      pointer-events: none;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-slide img,
+    .hero-slide video {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      z-index: 0;
+      display: block;
     }
 
     .hero-overlay {
@@ -118,7 +139,7 @@
       inset: 0;
       z-index: 1;
       background:
-        linear-gradient(90deg, rgba(15,23,42,0.92), rgba(15,23,42,0.74), rgba(15,23,42,0.38)),
+        linear-gradient(90deg, rgba(15,23,42,0.94), rgba(15,23,42,0.78), rgba(15,23,42,0.45)),
         radial-gradient(circle at 20% 20%, rgba(37,99,235,0.35), transparent 34%);
     }
 
@@ -136,7 +157,7 @@
     .hero-content {
       position: relative;
       z-index: 3;
-      max-width: 760px;
+      max-width: 780px;
       padding: 110px 0 80px;
     }
 
@@ -169,7 +190,7 @@
       color: #e5e7eb;
       line-height: 2.1;
       font-size: 18px;
-      max-width: 680px;
+      max-width: 700px;
     }
 
     .hero-actions {
@@ -183,7 +204,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      max-width: 690px;
+      max-width: 720px;
     }
 
     .trust-item {
@@ -213,7 +234,7 @@
       z-index: 4;
       left: 40px;
       bottom: 40px;
-      max-width: 320px;
+      max-width: 330px;
       padding: 18px;
       border-radius: 24px;
       background: rgba(255,255,255,0.14);
@@ -235,93 +256,50 @@
       font-size: 14px;
     }
 
-    .about { background: #ffffff; }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .about-panel {
-      background:
-        radial-gradient(circle at top right, rgba(37, 99, 235, 0.12), transparent 35%),
-        linear-gradient(135deg, #111827, #374151);
-      color: #ffffff;
-      border-radius: 32px;
-      padding: 34px;
-      min-height: 360px;
+    .hero-dots {
+      position: absolute;
+      z-index: 5;
+      right: 50%;
+      transform: translateX(50%);
+      bottom: 24px;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.18);
+      gap: 8px;
     }
 
-    .about-panel h3 {
-      margin: 0 0 18px;
-      font-size: 31px;
-      line-height: 1.5;
+    .hero-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.45);
+      cursor: pointer;
+      transition: 0.25s ease;
     }
 
-    .about-panel p {
-      margin: 0;
-      color: #e5e7eb;
-      line-height: 2.1;
-    }
-
-    .about-content {
-      display: grid;
-      gap: 18px;
-    }
-
-    .about-feature {
-      background: #f8fafc;
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
-      padding: 22px;
-    }
-
-    .about-feature h4 {
-      margin: 0 0 9px;
-      font-size: 19px;
-      color: #111827;
-      font-weight: 900;
-    }
-
-    .about-feature p {
-      margin: 0;
-      line-height: 1.9;
-      color: #64748b;
+    .hero-dot.active {
+      width: 30px;
+      border-radius: 999px;
+      background: #ffffff;
     }
 
     .products {
-      background: linear-gradient(135deg, #f8fafc, #eef2f7);
+      background: linear-gradient(135deg, #ffffff, #f8fafc, #eef2f7);
     }
 
     .products-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 24px;
     }
 
     .product-card {
       background: #ffffff;
       border: 1px solid #e5e7eb;
       border-radius: 30px;
-      padding: 26px;
       box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
       transition: 0.25s ease;
       position: relative;
       overflow: hidden;
-    }
-
-    .product-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, #111827, #2563eb);
     }
 
     .product-card:hover {
@@ -329,22 +307,101 @@
       box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
     }
 
+    .product-media {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 11;
+      overflow: hidden;
+      background: #0f172a;
+    }
+
+    .product-media-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 0.9s ease, transform 7s ease;
+    }
+
+    .product-media-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .product-media-slide img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .product-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, transparent 45%, rgba(15, 23, 42, 0.78)),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.25), transparent);
+      pointer-events: none;
+    }
+
+    .product-media-label {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      z-index: 3;
+      color: #ffffff;
+      font-size: 14px;
+      font-weight: 900;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.16);
+      border: 1px solid rgba(255,255,255,0.24);
+      backdrop-filter: blur(10px);
+    }
+
+    .product-dots {
+      position: absolute;
+      left: 16px;
+      bottom: 18px;
+      z-index: 3;
+      display: flex;
+      gap: 6px;
+    }
+
+    .product-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.45);
+    }
+
+    .product-dot.active {
+      width: 22px;
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    .product-content {
+      padding: 24px 26px 26px;
+    }
+
     .product-icon {
-      width: 62px;
-      height: 62px;
+      width: 58px;
+      height: 58px;
       border-radius: 22px;
       display: grid;
       place-items: center;
       background: linear-gradient(135deg, #111827, #475569);
       color: #ffffff;
-      font-size: 28px;
-      margin-bottom: 18px;
+      font-size: 26px;
+      margin-bottom: 16px;
     }
 
     .product-card h3 {
       margin: 0 0 12px;
       color: #111827;
-      font-size: 22px;
+      font-size: 23px;
       font-weight: 900;
     }
 
@@ -359,7 +416,69 @@
       font-weight: 900;
     }
 
-    .gallery { background: #ffffff; }
+    .why { background: #ffffff; }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .why-panel {
+      background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, 0.14), transparent 35%),
+        linear-gradient(135deg, #0f172a, #1f2937, #374151);
+      color: #ffffff;
+      border-radius: 34px;
+      padding: 34px;
+      min-height: 360px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.18);
+    }
+
+    .why-panel h2 {
+      margin: 0 0 18px;
+      font-size: 34px;
+      line-height: 1.5;
+    }
+
+    .why-panel p {
+      margin: 0;
+      color: #e5e7eb;
+      line-height: 2.1;
+    }
+
+    .why-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .why-item {
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .why-item h3 {
+      margin: 0 0 9px;
+      font-size: 20px;
+      color: #111827;
+      font-weight: 900;
+    }
+
+    .why-item p {
+      margin: 0;
+      line-height: 1.9;
+      color: #64748b;
+    }
+
+    .gallery {
+      background: linear-gradient(135deg, #f8fafc, #eef2f7);
+    }
 
     .gallery-grid {
       display: grid;
@@ -368,7 +487,7 @@
     }
 
     .gallery-card {
-      min-height: 230px;
+      min-height: 240px;
       border-radius: 30px;
       padding: 26px;
       display: flex;
@@ -376,7 +495,9 @@
       justify-content: flex-end;
       color: #ffffff;
       overflow: hidden;
-      background: linear-gradient(135deg, #0f172a, #334155);
+      background:
+        linear-gradient(135deg, rgba(15,23,42,0.85), rgba(37,99,235,0.35)),
+        linear-gradient(135deg, #0f172a, #334155);
       box-shadow: 0 22px 48px rgba(15, 23, 42, 0.16);
     }
 
@@ -532,19 +653,23 @@
     @media (max-width: 980px) {
       .hero { min-height: 88vh; }
 
-      .hero-content {
-        padding: 90px 0 70px;
-      }
+      .hero-content { padding: 90px 0 70px; }
 
       .hero h1 { font-size: 38px; }
 
+      .hero-text { font-size: 16px; }
+
       .trust-row,
-      .about-grid,
       .products-grid,
+      .why-grid,
       .gallery-grid,
       .quote-grid,
       .contact-grid {
         grid-template-columns: 1fr;
+      }
+
+      .product-media {
+        aspect-ratio: 16 / 10;
       }
 
       .video-note {
@@ -558,6 +683,41 @@
       .section { padding: 65px 0; }
 
       .section-head h2 { font-size: 30px; }
+
+      .quote-info h2 { font-size: 32px; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 18px; }
+
+      .hero h1 { font-size: 34px; }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .main-btn,
+      .secondary-btn { width: 100%; }
+
+      .product-card {
+        border-radius: 28px;
+      }
+
+      .product-media {
+        aspect-ratio: 4 / 3;
+      }
+
+      .product-content {
+        padding: 22px;
+      }
+
+      .whatsapp-float {
+        width: 58px;
+        height: 58px;
+        left: 18px;
+        bottom: 18px;
+      }
     }
   </style>
 </head>
@@ -569,10 +729,27 @@
 
     <main>
       <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-          <source src="media/fed.mp4" type="video/mp4">
-          متصفحك لا يدعم تشغيل الفيديو.
-        </video>
+        <div class="hero-slider" id="heroSlider">
+          <div class="hero-slide active">
+            <video autoplay muted playsinline preload="metadata">
+              <source src="media/fed.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="hero-slide">
+            <img src="media/gbh.jpeg" alt="قبب صناعية">
+          </div>
+
+          <div class="hero-slide">
+            <video muted playsinline preload="metadata">
+              <source src="media/fed2.mp4" type="video/mp4">
+            </video>
+          </div>
+
+          <div class="hero-slide">
+            <img src="media/ibrahem.jpeg" alt="أعمال ورشة الدب القطبي للصناعة">
+          </div>
+        </div>
 
         <div class="hero-overlay"></div>
         <div class="hero-pattern"></div>
@@ -590,10 +767,8 @@
             </p>
 
             <div class="hero-actions">
-              <a href="#quote" class="main-btn">اطلب عرض سعر</a>
-              <a href="https://wa.me/966531021644" target="_blank" class="secondary-btn">
-                تواصل واتساب
-              </a>
+              <a href="#products" class="main-btn">استعرض المنتجات</a>
+              <a href="https://wa.me/966531021644" target="_blank" class="secondary-btn">تواصل واتساب</a>
             </div>
 
             <div class="trust-row">
@@ -619,94 +794,154 @@
             <span>يتم تحديد السعر حسب المقاس، نوع المنتج، والمواصفات المطلوبة.</span>
           </div>
         </div>
-      </section>
 
-      <section class="section about" id="about">
-        <div class="container">
-          <div class="section-head">
-            <span class="section-kicker">من نحن</span>
-            <h2>ورشة صناعية بهوية قوية وتنفيذ يعتمد عليه</h2>
-            <p>نركز على تقديم حلول تصنيع واضحة، عملية، ومناسبة لاحتياجات العملاء.</p>
-          </div>
-
-          <div class="about-grid">
-            <div class="about-panel">
-              <h3>نصنع منتجات تخدم احتياجك الفعلي</h3>
-              <p>
-                نعمل على تنفيذ المنتجات المعدنية والصناعية حسب الطلب، مع مراعاة
-                المتانة، الاستخدام العملي، ودقة التفاصيل في كل منتج.
-              </p>
-            </div>
-
-            <div class="about-content">
-              <div class="about-feature">
-                <h4>حلول مخصصة</h4>
-                <p>ننفذ المنتجات حسب المقاسات والمواصفات المناسبة لكل عميل.</p>
-              </div>
-
-              <div class="about-feature">
-                <h4>مناسب لقطاعات متعددة</h4>
-                <p>نخدم الأفراد، الشركات، المقاولين، المصانع، والجهات الحكومية.</p>
-              </div>
-
-              <div class="about-feature">
-                <h4>طلب عرض سعر مباشر</h4>
-                <p>بدون عرض أسعار ثابتة، يتم التواصل لتحديد التفاصيل وتقديم السعر المناسب.</p>
-              </div>
-            </div>
-          </div>
+        <div class="hero-dots" id="heroDots">
+          <button class="hero-dot active" type="button"></button>
+          <button class="hero-dot" type="button"></button>
+          <button class="hero-dot" type="button"></button>
+          <button class="hero-dot" type="button"></button>
         </div>
       </section>
 
       <section class="section products" id="products">
         <div class="container">
           <div class="section-head">
-            <span class="section-kicker">المنتجات</span>
-            <h2>منتجاتنا الأساسية</h2>
-            <p>المنتجات معروضة للتعريف، ويمكن طلب عرض سعر حسب المواصفات المطلوبة.</p>
+            <span class="section-kicker">منتجاتنا</span>
+            <h2>ماذا نصنع؟</h2>
+            <p>
+              اختر المنتج المناسب لاحتياجك، ثم اطلب عرض سعر حسب المقاس والمواصفات المطلوبة.
+            </p>
           </div>
 
           <div class="products-grid">
+
             <div class="product-card">
-              <div class="product-icon">⌂</div>
-              <h3>القبب</h3>
-              <p>تصنيع قبب بتصاميم متعددة وجودة مناسبة للاستخدامات المختلفة.</p>
-              <a href="#quote">طلب عرض سعر</a>
+              <div class="product-media product-slider" data-product-slider>
+                <div class="product-media-slide active">
+                  <img src="media/gbh.jpeg" alt="قبب صناعية">
+                </div>
+                <div class="product-media-slide">
+                  <img src="media/gbh3.jpeg" alt="قبب معدنية">
+                </div>
+                <div class="product-media-slide">
+                  <img src="media/gbh4.jpeg" alt="تصنيع القبب">
+                </div>
+                <span class="product-media-label">القبب</span>
+                <div class="product-dots">
+                  <span class="product-dot active"></span>
+                  <span class="product-dot"></span>
+                  <span class="product-dot"></span>
+                </div>
+              </div>
+
+              <div class="product-content">
+                <h3>القبب</h3>
+                <p>تصنيع قبب بتصاميم متعددة وجودة مناسبة للاستخدامات المختلفة.</p>
+                <a href="#quote">طلب عرض سعر</a>
+              </div>
             </div>
 
             <div class="product-card">
-              <div class="product-icon">⚙</div>
-              <h3>آلات طعج الحديد</h3>
-              <p>حلول صناعية لثني وطعج الحديد حسب طبيعة العمل والاستخدام.</p>
-              <a href="#quote">طلب عرض سعر</a>
+              <div class="product-media product-slider" data-product-slider>
+                <div class="product-media-slide active">
+                  <img src="media/tag1.jpeg" alt="آلة طعج الحديد">
+                </div>
+                <div class="product-media-slide">
+                  <img src="media/tag2.jpeg" alt="معدات طعج الحديد">
+                </div>
+                <span class="product-media-label">آلات طعج الحديد</span>
+                <div class="product-dots">
+                  <span class="product-dot active"></span>
+                  <span class="product-dot"></span>
+                </div>
+              </div>
+
+              <div class="product-content">
+                <h3>آلات طعج الحديد</h3>
+                <p>حلول صناعية لثني وطعج الحديد حسب طبيعة العمل والاستخدام.</p>
+                <a href="#quote">طلب عرض سعر</a>
+              </div>
             </div>
 
             <div class="product-card">
-              <div class="product-icon">▣</div>
-              <h3>بوكسات الشحن</h3>
-              <p>بوكسات متينة وعملية للشحن والتخزين والاستخدام الميداني.</p>
-              <a href="#quote">طلب عرض سعر</a>
+              <div class="product-media product-slider" data-product-slider>
+                <div class="product-media-slide active">
+                  <img src="media/snd1.jpeg" alt="بوكسات الشحن">
+                </div>
+                <div class="product-media-slide">
+                  <img src="media/snd2.jpeg" alt="تصنيع بوكسات الشحن">
+                </div>
+                <span class="product-media-label">بوكسات الشحن</span>
+                <div class="product-dots">
+                  <span class="product-dot active"></span>
+                  <span class="product-dot"></span>
+                </div>
+              </div>
+
+              <div class="product-content">
+                <h3>بوكسات الشحن</h3>
+                <p>بوكسات متينة وعملية للشحن والتخزين والاستخدام الميداني.</p>
+                <a href="#quote">طلب عرض سعر</a>
+              </div>
             </div>
 
             <div class="product-card">
-              <div class="product-icon">▰</div>
-              <h3>المقطورات</h3>
-              <p>تصنيع مقطورات حسب الطلب بمواصفات تناسب الاستخدام العملي.</p>
-              <a href="#quote">طلب عرض سعر</a>
+              <div class="product-content">
+                <div class="product-icon">▰</div>
+                <h3>المقطورات</h3>
+                <p>تصنيع مقطورات حسب الطلب بمواصفات تناسب الاستخدام العملي.</p>
+                <a href="#quote">طلب عرض سعر</a>
+              </div>
             </div>
 
             <div class="product-card">
-              <div class="product-icon">☘</div>
-              <h3>بيوت محمية زراعية</h3>
-              <p>تصنيع بيوت محمية زراعية بمقاسات وتجهيزات متنوعة.</p>
-              <a href="#quote">طلب عرض سعر</a>
+              <div class="product-content">
+                <div class="product-icon">☘</div>
+                <h3>بيوت محمية زراعية</h3>
+                <p>تصنيع بيوت محمية زراعية بمقاسات وتجهيزات متنوعة.</p>
+                <a href="#quote">طلب عرض سعر</a>
+              </div>
             </div>
 
             <div class="product-card">
-              <div class="product-icon">＋</div>
-              <h3>تصنيع حسب الطلب</h3>
-              <p>تنفيذ منتجات خاصة حسب احتياج العميل والمواصفات المطلوبة.</p>
-              <a href="#quote">طلب عرض سعر</a>
+              <div class="product-content">
+                <div class="product-icon">＋</div>
+                <h3>تصنيع حسب الطلب</h3>
+                <p>تنفيذ منتجات خاصة حسب احتياج العميل والمواصفات المطلوبة.</p>
+                <a href="#quote">طلب عرض سعر</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section why" id="why">
+        <div class="container">
+          <div class="why-grid">
+            <div class="why-panel">
+              <h2>لماذا يختارنا العملاء؟</h2>
+              <p>
+                لأننا نركز على تصنيع عملي يخدم الاستخدام الحقيقي، مع وضوح في التواصل،
+                وتنفيذ حسب الطلب، وجودة تناسب احتياج الأفراد والشركات والجهات المختلفة.
+              </p>
+            </div>
+
+            <div class="why-list">
+              <div class="why-item">
+                <h3>حلول مخصصة</h3>
+                <p>ننفذ المنتجات حسب المقاسات والمواصفات المناسبة لكل عميل.</p>
+              </div>
+
+              <div class="why-item">
+                <h3>تنفيذ عملي ومتين</h3>
+                <p>نراعي المتانة وطبيعة الاستخدام عند تنفيذ المنتجات الصناعية.</p>
+              </div>
+
+              <div class="why-item">
+                <h3>طلب عرض سعر مباشر</h3>
+                <p>بدون عرض أسعار ثابتة، يتم التواصل لتحديد التفاصيل وتقديم السعر المناسب.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -716,8 +951,10 @@
         <div class="container">
           <div class="section-head">
             <span class="section-kicker">المعرض</span>
-            <h2>واجهة مناسبة لعرض الأعمال والمنتجات</h2>
-            <p>يمكن لاحقًا ربط هذا القسم بلوحة تحكم لإضافة الصور والمنتجات بسهولة.</p>
+            <h2>معرض الأعمال والمنتجات</h2>
+            <p>
+              يمكن لاحقًا ربط هذا القسم بلوحة تحكم لإضافة صور المنتجات والأعمال المنفذة.
+            </p>
           </div>
 
           <div class="gallery-grid">
@@ -813,9 +1050,11 @@
 
     <a class="whatsapp-float" href="https://wa.me/966531021644" target="_blank" aria-label="تواصل واتساب">
       <svg viewBox="0 0 32 32" aria-hidden="true">
-        <path d="M16.02 3C8.86 3 3.03 8.8 3.03 15.93c0 2.28.6 4.5 1.75 6.46L3 29l6.78-1.73a13.05 13.05 0 0 0 6.24 1.59C23.18 28.86 29 23.06 29 15.93S23.18 3 16.02 3Zm0 23.66c-1.92 0-3.8-.52-5.43-1.5l-.39-.23-4.02 1.03 1.07-3.9-.26-.4a10.62 10.62 0 0 1-1.65-5.73c0-5.9 4.8-10.7 10.68-10.7 5.9 0 10.7 4.8 10.7 10.7 0 5.9-4.8 10.73-10.7 10.73Zm5.86-8.02c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.86-1.6-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.15-.14.32-.38.48-.57.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.7s1.16 3.13 1.32 3.35c.16.21 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.24 1.48.21 2.04.13.62-.1 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37Z"/>
+        <path d="M16.02 3C8.86 3 3.03 8.8 3.03 15.93c0 2.28.6 4.5 1.75 6.46L3 29l6.78-1.73a13.05 13.05 0 0 0 6.24 1.59C23.18 28.86 29 23.06 29 15.93S23.18 3 16.02 3Zm0 23.66c-1.92 0-3.8-.52-5.43-1.5l-.39-.23-4.02 1.03 1.07-3.9-.26-.4a10.62 10.62 0 0 1-1.65-5.73c0-5.9 4.8-10.7 10.68-10.7 5.9 0 10.7 4.8 10.7 10.7 0 5.9-4.8 10.73-10.7 10.73Zm5.86-8.02c-.32-.16-1.9-.94-2.2-1.05-.3-.1-.51-.16-.73.16-.21.32-.84 1.05-1.03 1.27-.19.21-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.86-1.6-1.92-1.8-2.24-.18-.32-.02-.5.14-.66.15-.14.32-.38.48-.57.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.62-.53-.54-.73-.55h-.62c-.21 0-.56.08-.86.4-.3.32-1.13 1.1-1.13 2.7s1.16 3.13 1.32 3.35c.16.21 2.28 3.48 5.52 4.88.77.33 1.37.53 1.84.68.77.24 1.48.21 2.04.13.62-.10 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.3-.21-.62-.37Z"/>
       </svg>
     </a>
+
+    <div id="footer-placeholder"></div>
 
   </div>
 
@@ -829,29 +1068,154 @@
         }
 
         const html = await response.text();
-
         document.getElementById("header-placeholder").innerHTML = html;
 
         const menuToggle = document.getElementById("menuToggle");
         const navLinks = document.getElementById("navLinks");
 
         if (menuToggle && navLinks) {
-          menuToggle.addEventListener("click", function () {
+          function closeMenu() {
+            navLinks.classList.remove("active");
+            menuToggle.classList.remove("active");
+          }
+
+          menuToggle.addEventListener("click", function (event) {
+            event.stopPropagation();
             navLinks.classList.toggle("active");
+            menuToggle.classList.toggle("active");
+          });
+
+          navLinks.addEventListener("click", function (event) {
+            event.stopPropagation();
           });
 
           navLinks.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
-              navLinks.classList.remove("active");
-            });
+            link.addEventListener("click", closeMenu);
           });
+
+          document.addEventListener("click", closeMenu);
+          window.addEventListener("scroll", closeMenu);
         }
       } catch (error) {
         console.error("تعذر تحميل الشريط العلوي:", error);
       }
     }
 
+    async function loadFooter() {
+      try {
+        const response = await fetch("footer.html");
+
+        if (!response.ok) {
+          throw new Error("لم يتم العثور على footer.html");
+        }
+
+        const html = await response.text();
+        document.getElementById("footer-placeholder").innerHTML = html;
+      } catch (error) {
+        console.error("تعذر تحميل الشريط السفلي:", error);
+      }
+    }
+
+    function initHeroSlider() {
+      const slides = document.querySelectorAll(".hero-slide");
+      const dots = document.querySelectorAll(".hero-dot");
+
+      if (!slides.length) return;
+
+      let currentIndex = 0;
+      let sliderTimer = null;
+      const slideDuration = 10000;
+
+      function pauseAllVideos() {
+        slides.forEach(function (slide) {
+          const video = slide.querySelector("video");
+
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+      }
+
+      function playActiveVideo(index) {
+        const activeVideo = slides[index].querySelector("video");
+
+        if (activeVideo) {
+          activeVideo.currentTime = 0;
+          activeVideo.play().catch(function () {});
+        }
+      }
+
+      function showSlide(index) {
+        pauseAllVideos();
+
+        slides.forEach(function (slide, slideIndex) {
+          slide.classList.toggle("active", slideIndex === index);
+        });
+
+        dots.forEach(function (dot, dotIndex) {
+          dot.classList.toggle("active", dotIndex === index);
+        });
+
+        currentIndex = index;
+        playActiveVideo(currentIndex);
+      }
+
+      function nextSlide() {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        showSlide(nextIndex);
+      }
+
+      function startSlider() {
+        clearInterval(sliderTimer);
+        sliderTimer = setInterval(nextSlide, slideDuration);
+      }
+
+      dots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+          showSlide(index);
+          startSlider();
+        });
+      });
+
+      showSlide(0);
+      startSlider();
+    }
+
+    function initProductSliders() {
+      const sliders = document.querySelectorAll("[data-product-slider]");
+      const duration = 10000;
+
+      sliders.forEach(function (slider) {
+        const slides = slider.querySelectorAll(".product-media-slide");
+        const dots = slider.querySelectorAll(".product-dot");
+
+        if (slides.length <= 1) return;
+
+        let index = 0;
+
+        setInterval(function () {
+          slides[index].classList.remove("active");
+
+          if (dots[index]) {
+            dots[index].classList.remove("active");
+          }
+
+          index = (index + 1) % slides.length;
+
+          slides[index].classList.add("active");
+
+          if (dots[index]) {
+            dots[index].classList.add("active");
+          }
+        }, duration);
+      });
+    }
+
     loadHeader();
+    loadFooter();
+    initHeroSlider();
+    initProductSliders();
 
     function sendQuote(event) {
       event.preventDefault();
