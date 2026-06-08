@@ -139,59 +139,66 @@
       max-width: 1220px;
       margin: 0 auto;
       display: flex;
-      gap: 12px;
+      gap: 14px;
       flex-wrap: wrap;
       align-items: center;
     }
 
     .footer-social a {
-      width: 48px;
-      height: 48px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.1);
-      color: #ffffff;
-      display: grid;
-      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
       transition: 0.25s ease;
       margin: 0;
-      border: 1px solid rgba(255,255,255,0.12);
-      font-size: 13px;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .footer-social a svg {
-      width: 23px;
-      height: 23px;
-      fill: currentColor;
-      display: block;
+      border: none;
+      overflow: hidden;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
     }
 
     .footer-social a:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px) scale(1.05);
     }
 
-    .footer-social .youtube:hover {
+    .footer-social svg {
+      display: block;
+      width: 28px;
+      height: 28px;
+    }
+
+    .footer-social .youtube {
       background: #ff0000;
-      border-color: #ff0000;
       color: #ffffff;
     }
 
-    .footer-social .tiktok:hover {
-      background: #111827;
-      border-color: #ffffff;
+    .footer-social .youtube svg {
+      width: 30px;
+      height: 30px;
+      fill: #ffffff;
+    }
+
+    .footer-social .tiktok {
+      background: #000000;
       color: #ffffff;
+    }
+
+    .footer-social .tiktok svg {
+      width: 29px;
+      height: 29px;
     }
 
     .footer-social .snapchat {
-      font-size: 12px;
+      background: #fffc00;
+      color: #000000;
     }
 
-    .footer-social .snapchat:hover {
-      background: #fffc00;
-      border-color: #fffc00;
-      color: #111827;
+    .footer-social .snapchat svg {
+      width: 30px;
+      height: 30px;
+      fill: #000000;
     }
 
     .footer-bottom {
@@ -300,12 +307,14 @@
 
     <a class="tiktok" href="https://www.tiktok.com/@dobksa.com?_r=1&_t=ZS-9711uErrc8H" target="_blank" aria-label="تيك توك">
       <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M16.6 2c.3 2.5 1.7 4 4.1 4.2v4c-1.4.1-2.7-.3-4-1.1v6.7c0 3.4-2.2 6.2-5.7 6.2-3.2 0-5.8-2.4-5.8-5.6 0-3.8 3.4-6.4 7.1-5.6v4.1c-1.5-.5-3 .4-3 1.7 0 1 .8 1.7 1.8 1.7 1.2 0 1.8-.8 1.8-2.1V2h3.7Z"/>
+        <path fill="#ffffff" d="M16.6 2c.3 2.5 1.7 4 4.1 4.2v4c-1.4.1-2.7-.3-4-1.1v6.7c0 3.4-2.2 6.2-5.7 6.2-3.2 0-5.8-2.4-5.8-5.6 0-3.8 3.4-6.4 7.1-5.6v4.1c-1.5-.5-3 .4-3 1.7 0 1 .8 1.7 1.8 1.7 1.2 0 1.8-.8 1.8-2.1V2h3.7Z"/>
       </svg>
     </a>
 
     <a class="snapchat" href="https://snapchat.com/t/snA6sG0g" target="_blank" aria-label="سناب شات">
-      سناب
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.2c3 0 5.2 2.1 5.2 5.4 0 .8-.1 1.7-.1 2.4.2.1.5.1.8 0 .7-.2 1.3.1 1.5.6.2.6-.2 1.1-1 1.5-.4.2-.8.3-1.2.5.3 1 1.1 1.8 2.4 2.3.7.3.8 1.2.1 1.6-.6.3-1.3.4-2 .5-.2.4-.5.9-1.1.9-.5 0-1-.2-1.5-.2-.8 0-1.4.6-2.1 1.1-.6.5-1.3 1-2.4 1s-1.8-.5-2.4-1c-.7-.5-1.3-1.1-2.1-1.1-.5 0-1 .2-1.5.2-.6 0-.9-.5-1.1-.9-.7-.1-1.4-.2-2-.5-.7-.4-.6-1.3.1-1.6 1.3-.5 2.1-1.3 2.4-2.3-.4-.2-.8-.3-1.2-.5-.8-.4-1.2-.9-1-1.5.2-.5.8-.8 1.5-.6.3.1.6.1.8 0 0-.7-.1-1.6-.1-2.4C6.8 4.3 9 2.2 12 2.2Z"/>
+      </svg>
     </a>
   </div>
 
