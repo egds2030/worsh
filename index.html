@@ -26,30 +26,11 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong,
-    p,
-    span,
-    a,
-    button,
-    input,
-    textarea,
-    select {
+    h1, h2, h3, h4, h5, h6, strong, p, span, a, button, input, textarea, select {
       font-family: "IBM Plex Sans Arabic", Tahoma, Arial, sans-serif;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    strong {
+    h1, h2, h3, h4, h5, h6, strong {
       font-weight: 700;
       letter-spacing: -0.4px;
     }
@@ -83,20 +64,11 @@
       margin-bottom: 14px;
     }
 
-    .section-head h2 {
-      margin: 0 0 14px;
-      font-size: 40px;
-      line-height: 1.45;
-      color: #111827;
-      font-weight: 700;
-    }
-
     .section-head p {
       margin: 0;
       color: #64748b;
       line-height: 2;
       font-size: 17px;
-      font-weight: 500;
     }
 
     .main-btn,
@@ -104,7 +76,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       min-height: 50px;
       padding: 12px 24px;
       border-radius: 999px;
@@ -138,60 +109,32 @@
       display: flex;
       align-items: center;
       overflow: hidden;
-      background: #0f172a;
       color: #ffffff;
-    }
-
-    .hero-slider {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      overflow: hidden;
-      background: #0f172a;
-    }
-
-    .hero-slide {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      transform: scale(1.04);
-      transition: opacity 1s ease, transform 8s ease;
-      pointer-events: none;
-    }
-
-    .hero-slide.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    .hero-slide img,
-    .hero-slide video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
       background:
-        linear-gradient(90deg, rgba(15,23,42,0.94), rgba(15,23,42,0.78), rgba(15,23,42,0.45)),
-        radial-gradient(circle at 20% 20%, rgba(37,99,235,0.35), transparent 34%);
+        radial-gradient(circle at 18% 18%, rgba(37, 99, 235, 0.45), transparent 30%),
+        radial-gradient(circle at 88% 18%, rgba(148, 163, 184, 0.22), transparent 28%),
+        radial-gradient(circle at 70% 90%, rgba(37, 99, 235, 0.22), transparent 36%),
+        linear-gradient(135deg, #020617 0%, #0f172a 42%, #1f2937 100%);
     }
 
-    .hero-pattern {
+    .hero::before {
+      content: "";
       position: absolute;
       inset: 0;
-      z-index: 2;
       background-image:
         linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
       background-size: 44px 44px;
       opacity: 0.55;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(2,6,23,0.35), rgba(2,6,23,0.04)),
+        radial-gradient(circle at 50% 50%, transparent 20%, rgba(2,6,23,0.42));
     }
 
     .hero-content {
@@ -203,8 +146,6 @@
 
     .hero-badge {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
       padding: 10px 18px;
       border-radius: 999px;
       background: rgba(255,255,255,0.14);
@@ -220,11 +161,10 @@
       font-size: 60px;
       line-height: 1.35;
       color: #ffffff;
-      font-weight: 700;
     }
 
     .hero h1 span {
-      color: #60a5fa;
+      color: #93c5fd;
     }
 
     .hero-text {
@@ -233,7 +173,6 @@
       line-height: 2.1;
       font-size: 18px;
       max-width: 700px;
-      font-weight: 500;
     }
 
     .hero-actions {
@@ -244,116 +183,97 @@
     }
 
     .trust-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      max-width: 720px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 760px;
+      padding: 12px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.11);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(12px);
     }
 
     .trust-item {
-      background: rgba(255,255,255,0.13);
-      border: 1px solid rgba(255,255,255,0.18);
-      border-radius: 22px;
-      padding: 17px;
-      backdrop-filter: blur(10px);
-    }
-
-    .trust-item strong {
-      display: block;
-      font-size: 22px;
+      flex: 1 1 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 54px;
       color: #ffffff;
-      margin-bottom: 5px;
       font-weight: 700;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.08);
     }
 
     .trust-item span {
       color: #d1d5db;
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .video-note {
-      position: absolute;
-      z-index: 4;
-      left: 40px;
-      bottom: 40px;
-      max-width: 330px;
-      padding: 18px;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.14);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: #ffffff;
-      backdrop-filter: blur(12px);
-    }
-
-    .video-note strong {
-      display: block;
-      margin-bottom: 7px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .video-note span {
-      color: #e5e7eb;
-      line-height: 1.8;
       font-size: 14px;
-    }
-
-    .hero-dots {
-      position: absolute;
-      z-index: 5;
-      right: 50%;
-      transform: translateX(50%);
-      bottom: 24px;
-      display: flex;
-      gap: 8px;
-    }
-
-    .hero-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      border: none;
-      background: rgba(255,255,255,0.45);
-      cursor: pointer;
-      transition: 0.25s ease;
-    }
-
-    .hero-dot.active {
-      width: 30px;
-      border-radius: 999px;
-      background: #ffffff;
+      font-weight: 600;
     }
 
     .products {
       background: linear-gradient(135deg, #ffffff, #f8fafc, #eef2f7);
+      overflow: hidden;
     }
 
-    .products-grid {
+    .products .section-head {
+      margin-bottom: 34px;
+    }
+
+    .products-slider-wrap {
+      position: relative;
+    }
+
+    .products-slider {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(520px, 64%);
       gap: 24px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: inline mandatory;
+      scroll-padding-inline: 22px;
+      padding: 8px 22px 24px;
+      margin: 0 -22px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .products-slider::-webkit-scrollbar {
+      height: 10px;
+    }
+
+    .products-slider::-webkit-scrollbar-track {
+      background: #e5e7eb;
+      border-radius: 999px;
+      margin: 0 22px;
+    }
+
+    .products-slider::-webkit-scrollbar-thumb {
+      background: linear-gradient(135deg, #111827, #2563eb);
+      border-radius: 999px;
     }
 
     .product-card {
+      scroll-snap-align: center;
       background: #ffffff;
       border: 1px solid #e5e7eb;
-      border-radius: 30px;
-      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.07);
+      border-radius: 34px;
+      box-shadow: 0 22px 52px rgba(15, 23, 42, 0.10);
       transition: 0.25s ease;
-      position: relative;
       overflow: hidden;
     }
 
     .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 26px 60px rgba(15, 23, 42, 0.12);
+      transform: translateY(-6px);
+      box-shadow: 0 30px 70px rgba(15, 23, 42, 0.14);
     }
 
     .product-media {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 11;
+      aspect-ratio: 16 / 10;
       overflow: hidden;
       background: #0f172a;
     }
@@ -371,7 +291,8 @@
       transform: scale(1);
     }
 
-    .product-media-slide img {
+    .product-media-slide img,
+    .product-media img {
       width: 100%;
       height: 100%;
       display: block;
@@ -383,20 +304,20 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(180deg, transparent 45%, rgba(15, 23, 42, 0.78)),
-        linear-gradient(90deg, rgba(15, 23, 42, 0.25), transparent);
+        linear-gradient(180deg, transparent 55%, rgba(15, 23, 42, 0.72)),
+        linear-gradient(90deg, rgba(15, 23, 42, 0.16), transparent);
       pointer-events: none;
     }
 
     .product-media-label {
       position: absolute;
-      right: 16px;
-      bottom: 16px;
+      right: 20px;
+      bottom: 20px;
       z-index: 3;
       color: #ffffff;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 700;
-      padding: 8px 13px;
+      padding: 9px 15px;
       border-radius: 999px;
       background: rgba(255,255,255,0.16);
       border: 1px solid rgba(255,255,255,0.24);
@@ -405,59 +326,42 @@
 
     .product-dots {
       position: absolute;
-      left: 16px;
-      bottom: 18px;
+      left: 20px;
+      bottom: 24px;
       z-index: 3;
       display: flex;
-      gap: 6px;
+      gap: 7px;
     }
 
     .product-dot {
-      width: 7px;
-      height: 7px;
+      width: 8px;
+      height: 8px;
       border-radius: 50%;
       background: rgba(255,255,255,0.45);
     }
 
     .product-dot.active {
-      width: 22px;
+      width: 26px;
       border-radius: 999px;
       background: #ffffff;
     }
 
     .product-content {
-      padding: 24px 26px 26px;
-    }
-
-    .product-icon {
-      width: 58px;
-      height: 58px;
-      border-radius: 22px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, #111827, #475569);
-      color: #ffffff;
-      font-size: 26px;
-      margin-bottom: 16px;
+      padding: 28px 30px 32px;
     }
 
     .product-card h3 {
       margin: 0 0 12px;
       color: #111827;
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 34px;
+      line-height: 1.45;
     }
 
     .product-card p {
-      margin: 0 0 20px;
+      margin: 0;
       color: #64748b;
-      line-height: 1.9;
-      font-weight: 500;
-    }
-
-    .product-card a {
-      color: #2563eb;
-      font-weight: 700;
+      line-height: 2;
+      font-size: 17px;
     }
 
     .why {
@@ -489,14 +393,12 @@
       margin: 0 0 18px;
       font-size: 36px;
       line-height: 1.5;
-      font-weight: 700;
     }
 
     .why-panel p {
       margin: 0;
       color: #e5e7eb;
       line-height: 2.1;
-      font-weight: 500;
     }
 
     .why-list {
@@ -515,7 +417,6 @@
       margin: 0 0 9px;
       font-size: 21px;
       color: #111827;
-      font-weight: 700;
     }
 
     .why-item p {
@@ -530,35 +431,52 @@
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr 1fr;
-      gap: 20px;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 22px;
     }
 
     .gallery-card {
-      min-height: 240px;
-      border-radius: 30px;
-      padding: 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      color: #ffffff;
       overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(15,23,42,0.85), rgba(37,99,235,0.35)),
-        linear-gradient(135deg, #0f172a, #334155);
+      border-radius: 30px;
+      background: #0f172a;
       box-shadow: 0 22px 48px rgba(15, 23, 42, 0.16);
+      min-height: 280px;
+      position: relative;
     }
 
-    .gallery-card h3 {
-      margin: 0 0 10px;
-      font-size: 23px;
-      font-weight: 700;
+    .gallery-card img,
+    .gallery-card video {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
+      display: block;
     }
 
-    .gallery-card p {
-      margin: 0;
+    .gallery-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 45%, rgba(15, 23, 42, 0.82));
+    }
+
+    .gallery-label {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      z-index: 2;
+      color: #ffffff;
+    }
+
+    .gallery-label strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .gallery-label span {
       color: #e5e7eb;
-      line-height: 1.8;
+      font-size: 14px;
     }
 
     .quote {
@@ -579,7 +497,6 @@
       margin: 0 0 18px;
       font-size: 42px;
       line-height: 1.45;
-      font-weight: 700;
     }
 
     .quote-info p {
@@ -637,9 +554,7 @@
       resize: vertical;
     }
 
-    .quote-form button {
-      width: 100%;
-    }
+    .quote-form button { width: 100%; }
 
     .contact {
       background: #f8fafc;
@@ -665,7 +580,6 @@
       color: #111827;
       font-size: 18px;
       margin-bottom: 10px;
-      font-weight: 700;
     }
 
     .contact-card span,
@@ -673,6 +587,22 @@
       color: #64748b;
       line-height: 1.8;
       font-weight: 600;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .social-links a {
+      padding: 11px 18px;
+      border-radius: 999px;
+      color: #ffffff;
+      font-weight: 700;
+      background: linear-gradient(135deg, #111827, #2563eb);
     }
 
     .whatsapp-float {
@@ -702,24 +632,15 @@
     }
 
     @media (max-width: 980px) {
-      .hero {
-        min-height: 88vh;
-      }
+      .hero { min-height: 86vh; }
 
-      .hero-content {
-        padding: 90px 0 70px;
-      }
+      .hero-content { padding: 90px 0 70px; }
 
-      .hero h1 {
-        font-size: 39px;
-      }
+      .hero h1 { font-size: 39px; }
 
-      .hero-text {
-        font-size: 16px;
-      }
+      .hero-text { font-size: 16px; }
 
       .trust-row,
-      .products-grid,
       .why-grid,
       .gallery-grid,
       .quote-grid,
@@ -727,39 +648,32 @@
         grid-template-columns: 1fr;
       }
 
+      .products-slider {
+        grid-auto-columns: minmax(320px, 86%);
+        gap: 18px;
+      }
+
       .product-media {
-        aspect-ratio: 16 / 10;
+        aspect-ratio: 4 / 3;
       }
 
-      .video-note {
-        position: relative;
-        left: auto;
-        bottom: auto;
-        margin-top: 24px;
-        max-width: 100%;
+      .product-card h3 {
+        font-size: 30px;
       }
 
-      .section {
-        padding: 65px 0;
+      .product-card p {
+        font-size: 16px;
       }
 
-      .section-head h2 {
-        font-size: 32px;
-      }
+      .section { padding: 65px 0; }
 
-      .quote-info h2 {
-        font-size: 33px;
-      }
+      .quote-info h2 { font-size: 33px; }
     }
 
     @media (max-width: 480px) {
-      .container {
-        padding: 0 18px;
-      }
+      .container { padding: 0 18px; }
 
-      .hero h1 {
-        font-size: 35px;
-      }
+      .hero h1 { font-size: 35px; }
 
       .hero-actions {
         display: grid;
@@ -767,20 +681,28 @@
       }
 
       .main-btn,
-      .secondary-btn {
-        width: 100%;
+      .secondary-btn { width: 100%; }
+
+      .products-slider {
+        grid-auto-columns: 88%;
+        padding-inline: 18px;
+        margin-inline: -18px;
       }
 
       .product-card {
-        border-radius: 28px;
+        border-radius: 30px;
       }
 
       .product-media {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 3 / 3.15;
       }
 
       .product-content {
-        padding: 22px;
+        padding: 24px;
+      }
+
+      .product-card h3 {
+        font-size: 29px;
       }
 
       .whatsapp-float {
@@ -800,31 +722,6 @@
 
     <main>
       <section class="hero" id="home">
-        <div class="hero-slider" id="heroSlider">
-          <div class="hero-slide active">
-            <video autoplay muted playsinline preload="metadata">
-              <source src="media/fed.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <div class="hero-slide">
-            <img src="media/gbh.jpeg" alt="قبب صناعية">
-          </div>
-
-          <div class="hero-slide">
-            <video muted playsinline preload="metadata">
-              <source src="media/fed2.mp4" type="video/mp4">
-            </video>
-          </div>
-
-          <div class="hero-slide">
-            <img src="media/ibrahem.jpeg" alt="أعمال ورشة الدب القطبي للصناعة">
-          </div>
-        </div>
-
-        <div class="hero-overlay"></div>
-        <div class="hero-pattern"></div>
-
         <div class="container">
           <div class="hero-content">
             <div class="hero-badge">تصنيع احترافي حسب الطلب</div>
@@ -838,39 +735,16 @@
             </p>
 
             <div class="hero-actions">
-              <a href="#products" class="main-btn">استعرض المنتجات</a>
+              <a href="#products" class="main-btn">عرض المنتجات</a>
               <a href="https://wa.me/966531021644" target="_blank" class="secondary-btn">تواصل واتساب</a>
             </div>
 
             <div class="trust-row">
-              <div class="trust-item">
-                <strong>تصنيع</strong>
-                <span>حسب المقاسات المطلوبة</span>
-              </div>
-
-              <div class="trust-item">
-                <strong>جودة</strong>
-                <span>تنفيذ متين وعملي</span>
-              </div>
-
-              <div class="trust-item">
-                <strong>ثقة</strong>
-                <span>للأفراد والشركات</span>
-              </div>
+              <div class="trust-item">تصنيع <span>حسب الطلب</span></div>
+              <div class="trust-item">جودة <span>تنفيذ متين</span></div>
+              <div class="trust-item">ثقة <span>للأفراد والشركات</span></div>
             </div>
           </div>
-
-          <div class="video-note">
-            <strong>بدون أسعار ثابتة</strong>
-            <span>يتم تحديد السعر حسب المقاس، نوع المنتج، والمواصفات المطلوبة.</span>
-          </div>
-        </div>
-
-        <div class="hero-dots" id="heroDots">
-          <button class="hero-dot active" type="button"></button>
-          <button class="hero-dot" type="button"></button>
-          <button class="hero-dot" type="button"></button>
-          <button class="hero-dot" type="button"></button>
         </div>
       </section>
 
@@ -878,111 +752,86 @@
         <div class="container">
           <div class="section-head">
             <span class="section-kicker">منتجاتنا</span>
-            <h2>ماذا نصنع؟</h2>
-            <p>
-              اختر المنتج المناسب لاحتياجك، ثم اطلب عرض سعر حسب المقاس والمواصفات المطلوبة.
-            </p>
+            <p>اسحب يمينًا ويسارًا لاستعراض منتجاتنا بوضوح.</p>
           </div>
 
-          <div class="products-grid">
+          <div class="products-slider-wrap">
+            <div class="products-slider">
 
-            <div class="product-card">
-              <div class="product-media product-slider" data-product-slider>
-                <div class="product-media-slide active">
-                  <img src="media/gbh.jpeg" alt="قبب صناعية">
+              <div class="product-card">
+                <div class="product-media product-slider" data-product-slider>
+                  <div class="product-media-slide active"><img src="media/gbh.jpeg" alt="قبب صناعية"></div>
+                  <div class="product-media-slide"><img src="media/gbh3.jpeg" alt="قبب معدنية"></div>
+                  <div class="product-media-slide"><img src="media/gbh4.jpeg" alt="تصنيع القبب"></div>
+                  <span class="product-media-label">القبب</span>
+                  <div class="product-dots"><span class="product-dot active"></span><span class="product-dot"></span><span class="product-dot"></span></div>
                 </div>
-                <div class="product-media-slide">
-                  <img src="media/gbh3.jpeg" alt="قبب معدنية">
-                </div>
-                <div class="product-media-slide">
-                  <img src="media/gbh4.jpeg" alt="تصنيع القبب">
-                </div>
-                <span class="product-media-label">القبب</span>
-                <div class="product-dots">
-                  <span class="product-dot active"></span>
-                  <span class="product-dot"></span>
-                  <span class="product-dot"></span>
+                <div class="product-content">
+                  <h3>القبب</h3>
+                  <p>تصنيع قبب بتصاميم متعددة وجودة مناسبة للاستخدامات المختلفة.</p>
                 </div>
               </div>
 
-              <div class="product-content">
-                <h3>القبب</h3>
-                <p>تصنيع قبب بتصاميم متعددة وجودة مناسبة للاستخدامات المختلفة.</p>
-                <a href="#quote">طلب عرض سعر</a>
+              <div class="product-card">
+                <div class="product-media product-slider" data-product-slider>
+                  <div class="product-media-slide active"><img src="media/tag1.jpeg" alt="آلة طعج الحديد"></div>
+                  <div class="product-media-slide"><img src="media/tag2.jpeg" alt="معدات طعج الحديد"></div>
+                  <span class="product-media-label">آلات طعج الحديد</span>
+                  <div class="product-dots"><span class="product-dot active"></span><span class="product-dot"></span></div>
+                </div>
+                <div class="product-content">
+                  <h3>آلات طعج الحديد</h3>
+                  <p>حلول صناعية لثني وطعج الحديد حسب طبيعة العمل والاستخدام.</p>
+                </div>
               </div>
+
+              <div class="product-card">
+                <div class="product-media product-slider" data-product-slider>
+                  <div class="product-media-slide active"><img src="media/snd1.jpeg" alt="بوكسات الشحن"></div>
+                  <div class="product-media-slide"><img src="media/snd2.jpeg" alt="تصنيع بوكسات الشحن"></div>
+                  <span class="product-media-label">بوكسات الشحن</span>
+                  <div class="product-dots"><span class="product-dot active"></span><span class="product-dot"></span></div>
+                </div>
+                <div class="product-content">
+                  <h3>بوكسات الشحن</h3>
+                  <p>بوكسات متينة وعملية للشحن والتخزين والاستخدام الميداني.</p>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-media">
+                  <img src="media/mg.png" alt="المقطورات">
+                  <span class="product-media-label">المقطورات</span>
+                </div>
+                <div class="product-content">
+                  <h3>المقطورات</h3>
+                  <p>تصنيع مقطورات حسب الطلب بمواصفات تناسب الاستخدام العملي.</p>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-media">
+                  <img src="media/mhmeh.png" alt="بيوت محمية زراعية">
+                  <span class="product-media-label">بيوت محمية</span>
+                </div>
+                <div class="product-content">
+                  <h3>بيوت محمية زراعية</h3>
+                  <p>تصنيع بيوت محمية زراعية بمقاسات وتجهيزات متنوعة.</p>
+                </div>
+              </div>
+
+              <div class="product-card">
+                <div class="product-media">
+                  <img src="media/mlh.png" alt="مضلات سيارات">
+                  <span class="product-media-label">مضلات سيارات</span>
+                </div>
+                <div class="product-content">
+                  <h3>مضلات سيارات</h3>
+                  <p>تنفيذ مضلات سيارات بتصاميم عملية وجودة مناسبة للاستخدام اليومي.</p>
+                </div>
+              </div>
+
             </div>
-
-            <div class="product-card">
-              <div class="product-media product-slider" data-product-slider>
-                <div class="product-media-slide active">
-                  <img src="media/tag1.jpeg" alt="آلة طعج الحديد">
-                </div>
-                <div class="product-media-slide">
-                  <img src="media/tag2.jpeg" alt="معدات طعج الحديد">
-                </div>
-                <span class="product-media-label">آلات طعج الحديد</span>
-                <div class="product-dots">
-                  <span class="product-dot active"></span>
-                  <span class="product-dot"></span>
-                </div>
-              </div>
-
-              <div class="product-content">
-                <h3>آلات طعج الحديد</h3>
-                <p>حلول صناعية لثني وطعج الحديد حسب طبيعة العمل والاستخدام.</p>
-                <a href="#quote">طلب عرض سعر</a>
-              </div>
-            </div>
-
-            <div class="product-card">
-              <div class="product-media product-slider" data-product-slider>
-                <div class="product-media-slide active">
-                  <img src="media/snd1.jpeg" alt="بوكسات الشحن">
-                </div>
-                <div class="product-media-slide">
-                  <img src="media/snd2.jpeg" alt="تصنيع بوكسات الشحن">
-                </div>
-                <span class="product-media-label">بوكسات الشحن</span>
-                <div class="product-dots">
-                  <span class="product-dot active"></span>
-                  <span class="product-dot"></span>
-                </div>
-              </div>
-
-              <div class="product-content">
-                <h3>بوكسات الشحن</h3>
-                <p>بوكسات متينة وعملية للشحن والتخزين والاستخدام الميداني.</p>
-                <a href="#quote">طلب عرض سعر</a>
-              </div>
-            </div>
-
-            <div class="product-card">
-              <div class="product-content">
-                <div class="product-icon">▰</div>
-                <h3>المقطورات</h3>
-                <p>تصنيع مقطورات حسب الطلب بمواصفات تناسب الاستخدام العملي.</p>
-                <a href="#quote">طلب عرض سعر</a>
-              </div>
-            </div>
-
-            <div class="product-card">
-              <div class="product-content">
-                <div class="product-icon">☘</div>
-                <h3>بيوت محمية زراعية</h3>
-                <p>تصنيع بيوت محمية زراعية بمقاسات وتجهيزات متنوعة.</p>
-                <a href="#quote">طلب عرض سعر</a>
-              </div>
-            </div>
-
-            <div class="product-card">
-              <div class="product-content">
-                <div class="product-icon">＋</div>
-                <h3>تصنيع حسب الطلب</h3>
-                <p>تنفيذ منتجات خاصة حسب احتياج العميل والمواصفات المطلوبة.</p>
-                <a href="#quote">طلب عرض سعر</a>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>
@@ -1010,8 +859,8 @@
               </div>
 
               <div class="why-item">
-                <h3>طلب عرض سعر مباشر</h3>
-                <p>بدون عرض أسعار ثابتة، يتم التواصل لتحديد التفاصيل وتقديم السعر المناسب.</p>
+                <h3>تواصل سريع</h3>
+                <p>استقبال الطلبات والاستفسارات مباشرة عبر واتساب.</p>
               </div>
             </div>
           </div>
@@ -1022,26 +871,32 @@
         <div class="container">
           <div class="section-head">
             <span class="section-kicker">المعرض</span>
-            <h2>معرض الأعمال والمنتجات</h2>
-            <p>
-              يمكن لاحقًا ربط هذا القسم بلوحة تحكم لإضافة صور المنتجات والأعمال المنفذة.
-            </p>
+            <p>صور وفيديوهات توضح طبيعة العمل والمنتجات بشكل عملي.</p>
           </div>
 
           <div class="gallery-grid">
             <div class="gallery-card">
-              <h3>منتجات معدنية</h3>
-              <p>قسم مخصص لصور المنتجات الصناعية.</p>
+              <video autoplay muted loop playsinline preload="metadata">
+                <source src="media/fed.mp4" type="video/mp4">
+              </video>
+              <div class="gallery-label"><strong>مشاهد من العمل</strong><span>تنفيذ وتصنيع حسب الطلب</span></div>
             </div>
 
             <div class="gallery-card">
-              <h3>معدات وتجهيزات</h3>
-              <p>عرض واضح للأعمال والتجهيزات.</p>
+              <img src="media/gbh.jpeg" alt="قبب صناعية">
+              <div class="gallery-label"><strong>القبب</strong><span>تصاميم عملية ومتعددة</span></div>
             </div>
 
             <div class="gallery-card">
-              <h3>حلول حسب الطلب</h3>
-              <p>تصاميم تناسب احتياج العميل.</p>
+              <video autoplay muted loop playsinline preload="metadata">
+                <source src="media/fed2.mp4" type="video/mp4">
+              </video>
+              <div class="gallery-label"><strong>معدات وتجهيزات</strong><span>عرض واضح للأعمال</span></div>
+            </div>
+
+            <div class="gallery-card">
+              <img src="media/ibrahem.jpeg" alt="أعمال ورشة الدب القطبي">
+              <div class="gallery-label"><strong>أعمال متنوعة</strong><span>حلول تناسب احتياج العميل</span></div>
             </div>
           </div>
         </div>
@@ -1075,7 +930,7 @@
                 <option>بوكسات الشحن</option>
                 <option>المقطورات</option>
                 <option>بيوت محمية زراعية</option>
-                <option>تصنيع حسب الطلب</option>
+                <option>مضلات سيارات</option>
               </select>
 
               <textarea id="details" placeholder="اكتب تفاصيل الطلب والمقاسات المطلوبة"></textarea>
@@ -1090,7 +945,6 @@
         <div class="container">
           <div class="section-head">
             <span class="section-kicker">تواصل معنا</span>
-            <h2>يسعدنا استقبال استفسارك</h2>
             <p>يمكن التواصل معنا مباشرة لمعرفة تفاصيل المنتجات وطلب عرض سعر.</p>
           </div>
 
@@ -1112,8 +966,14 @@
 
             <div class="contact-card">
               <strong>المدينة</strong>
-              <span>اكتب المدينة هنا</span>
+              <span>منطقة الجوف - طبرجل</span>
             </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://youtube.com/@dobksa?si=I91Tj6_mL7zEVc_8" target="_blank">يوتيوب</a>
+            <a href="https://www.tiktok.com/@dobksa.com?_r=1&_t=ZS-9711uErrc8H" target="_blank">تيك توك</a>
+            <a href="https://snapchat.com/t/snA6sG0g" target="_blank">سناب شات</a>
           </div>
         </div>
       </section>
@@ -1140,33 +1000,6 @@
 
         const html = await response.text();
         document.getElementById("header-placeholder").innerHTML = html;
-
-        const menuToggle = document.getElementById("menuToggle");
-        const navLinks = document.getElementById("navLinks");
-
-        if (menuToggle && navLinks) {
-          function closeMenu() {
-            navLinks.classList.remove("active");
-            menuToggle.classList.remove("active");
-          }
-
-          menuToggle.addEventListener("click", function (event) {
-            event.stopPropagation();
-            navLinks.classList.toggle("active");
-            menuToggle.classList.toggle("active");
-          });
-
-          navLinks.addEventListener("click", function (event) {
-            event.stopPropagation();
-          });
-
-          navLinks.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", closeMenu);
-          });
-
-          document.addEventListener("click", closeMenu);
-          window.addEventListener("scroll", closeMenu);
-        }
       } catch (error) {
         console.error("تعذر تحميل الشريط العلوي:", error);
       }
@@ -1185,72 +1018,6 @@
       } catch (error) {
         console.error("تعذر تحميل الشريط السفلي:", error);
       }
-    }
-
-    function initHeroSlider() {
-      const slides = document.querySelectorAll(".hero-slide");
-      const dots = document.querySelectorAll(".hero-dot");
-
-      if (!slides.length) return;
-
-      let currentIndex = 0;
-      let sliderTimer = null;
-      const slideDuration = 10000;
-
-      function pauseAllVideos() {
-        slides.forEach(function (slide) {
-          const video = slide.querySelector("video");
-
-          if (video) {
-            video.pause();
-            video.currentTime = 0;
-          }
-        });
-      }
-
-      function playActiveVideo(index) {
-        const activeVideo = slides[index].querySelector("video");
-
-        if (activeVideo) {
-          activeVideo.currentTime = 0;
-          activeVideo.play().catch(function () {});
-        }
-      }
-
-      function showSlide(index) {
-        pauseAllVideos();
-
-        slides.forEach(function (slide, slideIndex) {
-          slide.classList.toggle("active", slideIndex === index);
-        });
-
-        dots.forEach(function (dot, dotIndex) {
-          dot.classList.toggle("active", dotIndex === index);
-        });
-
-        currentIndex = index;
-        playActiveVideo(currentIndex);
-      }
-
-      function nextSlide() {
-        const nextIndex = (currentIndex + 1) % slides.length;
-        showSlide(nextIndex);
-      }
-
-      function startSlider() {
-        clearInterval(sliderTimer);
-        sliderTimer = setInterval(nextSlide, slideDuration);
-      }
-
-      dots.forEach(function (dot, index) {
-        dot.addEventListener("click", function () {
-          showSlide(index);
-          startSlider();
-        });
-      });
-
-      showSlide(0);
-      startSlider();
     }
 
     function initProductSliders() {
@@ -1285,7 +1052,6 @@
 
     loadHeader();
     loadFooter();
-    initHeroSlider();
     initProductSliders();
 
     function sendQuote(event) {

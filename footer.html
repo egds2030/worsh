@@ -127,9 +127,76 @@
       transform: translateY(-3px) !important;
     }
 
+    .footer-social-title {
+      max-width: 1220px;
+      margin: 34px auto 14px;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .footer-social {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-social a {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.1);
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      text-decoration: none;
+      transition: 0.25s ease;
+      margin: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+      font-size: 13px;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .footer-social a svg {
+      width: 23px;
+      height: 23px;
+      fill: currentColor;
+      display: block;
+    }
+
+    .footer-social a:hover {
+      transform: translateY(-3px);
+    }
+
+    .footer-social .youtube:hover {
+      background: #ff0000;
+      border-color: #ff0000;
+      color: #ffffff;
+    }
+
+    .footer-social .tiktok:hover {
+      background: #111827;
+      border-color: #ffffff;
+      color: #ffffff;
+    }
+
+    .footer-social .snapchat {
+      font-size: 12px;
+    }
+
+    .footer-social .snapchat:hover {
+      background: #fffc00;
+      border-color: #fffc00;
+      color: #111827;
+    }
+
     .footer-bottom {
       max-width: 1220px;
-      margin: 38px auto 0;
+      margin: 28px auto 0;
       padding-top: 20px;
       border-top: 1px solid rgba(255, 255, 255, 0.14);
       display: flex;
@@ -139,30 +206,6 @@
       color: #d1d5db;
       font-size: 14px;
       flex-wrap: wrap;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 10px;
-    }
-
-    .footer-social a {
-      width: 38px;
-      height: 38px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.1);
-      color: #ffffff;
-      display: grid;
-      place-items: center;
-      text-decoration: none;
-      transition: 0.25s ease;
-      font-weight: 900;
-      margin: 0;
-    }
-
-    .footer-social a:hover {
-      background: #2563eb;
-      transform: translateY(-3px);
     }
 
     @media (max-width: 900px) {
@@ -175,10 +218,6 @@
         gap: 30px;
       }
 
-      .footer-brand {
-        align-items: center;
-      }
-
       .footer-box h3 {
         font-size: 20px;
       }
@@ -186,6 +225,12 @@
       .footer-actions {
         display: grid;
         grid-template-columns: 1fr;
+      }
+
+      .footer-social-title,
+      .footer-social {
+        text-align: center;
+        justify-content: center;
       }
 
       .footer-bottom {
@@ -223,13 +268,14 @@
       <a href="index.html#products">بوكسات الشحن</a>
       <a href="index.html#products">المقطورات</a>
       <a href="index.html#products">البيوت المحمية الزراعية</a>
+      <a href="index.html#products">مضلات سيارات</a>
     </div>
 
     <div class="footer-box">
       <h4>روابط الموقع</h4>
       <a href="index.html#home">الرئيسية</a>
       <a href="index.html#products">المنتجات</a>
-      <a href="index.html#quote">اطلب عرض سعر</a>
+      <a href="index.html#quote">طلب عرض سعر</a>
       <a href="about.html">من نحن</a>
       <a href="contact.html">اتصل بنا</a>
     </div>
@@ -239,17 +285,32 @@
       <p>الهاتف: <a href="tel:+966531021644">0531021644</a></p>
       <p>واتساب: <a href="https://wa.me/966531021644" target="_blank">0531021644</a></p>
       <p>البريد: <a href="mailto:info@dobksa.com">info@dobksa.com</a></p>
-      <p>المدينة: اكتب المدينة هنا</p>
+      <p>المدينة: منطقة الجوف - طبرجل</p>
     </div>
+  </div>
+
+  <h4 class="footer-social-title">تابعنا على</h4>
+
+  <div class="footer-social">
+    <a class="youtube" href="https://youtube.com/@dobksa?si=I91Tj6_mL7zEVc_8" target="_blank" aria-label="يوتيوب">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.9 2.5 12 2.5 12 2.5s-4.9 0-8.2.3c-.5.1-1.5.1-2.4 1C.7 4.5.5 6.2.5 6.2S.2 8.2.2 10.2v1.9c0 2 .3 4 .3 4s.2 1.7.9 2.4c.9.9 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.9 0 8.2-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4s.3-2 .3-4v-1.9c0-2-.3-4-.3-4ZM9.8 14.9V7.8l6.3 3.6-6.3 3.5Z"/>
+      </svg>
+    </a>
+
+    <a class="tiktok" href="https://www.tiktok.com/@dobksa.com?_r=1&_t=ZS-9711uErrc8H" target="_blank" aria-label="تيك توك">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M16.6 2c.3 2.5 1.7 4 4.1 4.2v4c-1.4.1-2.7-.3-4-1.1v6.7c0 3.4-2.2 6.2-5.7 6.2-3.2 0-5.8-2.4-5.8-5.6 0-3.8 3.4-6.4 7.1-5.6v4.1c-1.5-.5-3 .4-3 1.7 0 1 .8 1.7 1.8 1.7 1.2 0 1.8-.8 1.8-2.1V2h3.7Z"/>
+      </svg>
+    </a>
+
+    <a class="snapchat" href="https://snapchat.com/t/snA6sG0g" target="_blank" aria-label="سناب شات">
+      سناب
+    </a>
   </div>
 
   <div class="footer-bottom">
     <span>جميع الحقوق محفوظة © ورشة الدب القطبي للصناعة</span>
-
-    <div class="footer-social">
-      <a href="#" aria-label="X">X</a>
-      <a href="#" aria-label="Instagram">IG</a>
-      <a href="#" aria-label="TikTok">TT</a>
-    </div>
+    <span>تصنيع معدني وحلول صناعية حسب الطلب</span>
   </div>
 </footer>
