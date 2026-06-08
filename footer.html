@@ -148,7 +148,7 @@
       width: 56px;
       height: 56px;
       border-radius: 18px;
-      display: flex;
+      display: flex !important;
       align-items: center;
       justify-content: center;
       text-decoration: none;
@@ -157,48 +157,32 @@
       border: none;
       overflow: hidden;
       box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
     }
 
     .footer-social a:hover {
       transform: translateY(-4px) scale(1.05);
     }
 
-    .footer-social svg {
+    .footer-social img {
       display: block;
-      width: 28px;
-      height: 28px;
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+      border: 0;
     }
 
     .footer-social .youtube {
-      background: #ff0000;
-      color: #ffffff;
-    }
-
-    .footer-social .youtube svg {
-      width: 30px;
-      height: 30px;
-      fill: #ffffff;
+      background-color: #ff0000 !important;
     }
 
     .footer-social .tiktok {
-      background: #000000;
-      color: #ffffff;
-    }
-
-    .footer-social .tiktok svg {
-      width: 29px;
-      height: 29px;
+      background-color: #000000 !important;
     }
 
     .footer-social .snapchat {
-      background: #fffc00;
-      color: #000000;
-    }
-
-    .footer-social .snapchat svg {
-      width: 30px;
-      height: 30px;
-      fill: #000000;
+      background-color: #fffc00 !important;
     }
 
     .footer-bottom {
@@ -300,21 +284,15 @@
 
   <div class="footer-social">
     <a class="youtube" href="https://youtube.com/@dobksa?si=I91Tj6_mL7zEVc_8" target="_blank" aria-label="يوتيوب">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M23.5 6.2s-.2-1.7-.9-2.4c-.9-.9-1.9-.9-2.4-1C16.9 2.5 12 2.5 12 2.5s-4.9 0-8.2.3c-.5.1-1.5.1-2.4 1C.7 4.5.5 6.2.5 6.2S.2 8.2.2 10.2v1.9c0 2 .3 4 .3 4s.2 1.7.9 2.4c.9.9 2.1.9 2.6 1 1.9.2 8 .3 8 .3s4.9 0 8.2-.3c.5-.1 1.5-.1 2.4-1 .7-.7.9-2.4.9-2.4s.3-2 .3-4v-1.9c0-2-.3-4-.3-4ZM9.8 14.9V7.8l6.3 3.6-6.3 3.5Z"/>
-      </svg>
+      <img alt="يوتيوب" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTIzLjUgNi4ycy0uMi0xLjctLjktMi40Yy0uOS0uOS0xLjktLjktMi40LTFDMTYuOSAyLjUgMTIgMi41IDEyIDIuNVM3LjEgMi41IDMuOCAyLjhjLS41LjEtMS41LjEtMi40IDFDLjcgNC41LjUgNi4yLjUgNi4yUy4yIDguMi4yIDEwLjJ2MS45YzAgMiAuMyA0IC4zIDRzLjIgMS43LjkgMi40Yy45LjkgMi4xLjkgMi42IDEgMS45LjIgOCAuMyA4IC4zczQuOSAwIDguMi0uM2MuNS0uMSAxLjUtLjEgMi40LTFjLjctLjcuOS0yLjQuOS0yLjRzLjMtMiAuMy00di0xLjljMC0yLS4zLTQtLjMtNFpNOS44IDE0LjlWNy44bDYuMyAzLjYtNi4zIDMuNVoiLz48L3N2Zz4=">
     </a>
 
     <a class="tiktok" href="https://www.tiktok.com/@dobksa.com?_r=1&_t=ZS-9711uErrc8H" target="_blank" aria-label="تيك توك">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path fill="#ffffff" d="M16.6 2c.3 2.5 1.7 4 4.1 4.2v4c-1.4.1-2.7-.3-4-1.1v6.7c0 3.4-2.2 6.2-5.7 6.2-3.2 0-5.8-2.4-5.8-5.6 0-3.8 3.4-6.4 7.1-5.6v4.1c-1.5-.5-3 .4-3 1.7 0 1 .8 1.7 1.8 1.7 1.2 0 1.8-.8 1.8-2.1V2h3.7Z"/>
-      </svg>
+      <img alt="تيك توك" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iI2ZmZmZmZiIgZD0iTTE2LjYgMmMuMyAyLjUgMS43IDQgNC4xIDQuMnY0Yy0xLjQuMS0yLjctLjMtNC0xLjF2Ni43YzAgMy40LTIuMiA2LjItNS43IDYuMi0zLjIgMC01LjgtMi40LTUuOC01LjYgMC0zLjggMy40LTYuNCA3LjEtNS42djQuMWMtMS41LS41LTMgLjQtMyAxLjcgMCAxIC44IDEuNyAxLjggMS43IDEuMiAwIDEuOC0uOCAxLjgtMi4xVjJoMy43WiIvPjwvc3ZnPg==">
     </a>
 
     <a class="snapchat" href="https://snapchat.com/t/snA6sG0g" target="_blank" aria-label="سناب شات">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 2.2c3 0 5.2 2.1 5.2 5.4 0 .8-.1 1.7-.1 2.4.2.1.5.1.8 0 .7-.2 1.3.1 1.5.6.2.6-.2 1.1-1 1.5-.4.2-.8.3-1.2.5.3 1 1.1 1.8 2.4 2.3.7.3.8 1.2.1 1.6-.6.3-1.3.4-2 .5-.2.4-.5.9-1.1.9-.5 0-1-.2-1.5-.2-.8 0-1.4.6-2.1 1.1-.6.5-1.3 1-2.4 1s-1.8-.5-2.4-1c-.7-.5-1.3-1.1-2.1-1.1-.5 0-1 .2-1.5.2-.6 0-.9-.5-1.1-.9-.7-.1-1.4-.2-2-.5-.7-.4-.6-1.3.1-1.6 1.3-.5 2.1-1.3 2.4-2.3-.4-.2-.8-.3-1.2-.5-.8-.4-1.2-.9-1-1.5.2-.5.8-.8 1.5-.6.3.1.6.1.8 0 0-.7-.1-1.6-.1-2.4C6.8 4.3 9 2.2 12 2.2Z"/>
-      </svg>
+      <img alt="سناب شات" src="data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTEyIDIuMmMzIDAgNS4yIDIuMSA1LjIgNS40IDAgLjgtLjEgMS43LS4xIDIuNC4yLjEuNS4xLjggMCAuNy0uMiAxLjMuMSAxLjUuNi4yLjYtLjIgMS4xLTEgMS41LS40LjItLjguMy0xLjIuNS4zIDEgMS4xIDEuOCAyLjQgMi4zLjcuMy44IDEuMi4xIDEuNi0uNi4zLTEuMy40LTIgLjUtLjIuNC0uNS45LTEuMS45LS41IDAtMS0uMi0xLjUtLjItLjggMC0xLjQuNi0yLjEgMS4xLS42LjUtMS4zIDEtMi40IDFzLTEuOC0uNS0yLjQtMWMtLjctLjUtMS4zLTEuMS0yLjEtMS4xLS41IDAtMSAuMi0xLjUuMi0uNiAwLS45LS41LTEuMS0uOS0uNy0uMS0xLjQtLjItMi0uNS0uNy0uNC0uNi0xLjMuMS0xLjYgMS4zLS41IDIuMS0xLjMgMi40LTIuMy0uNC0uMi0uOC0uMy0xLjItLjUtLjgtLjQtMS4yLS45LTEtMS41LjItLjUuOC0uOCAxLjUtLjYuMy4xLjYuMS44IDAgMC0uNy0uMS0xLjYtLjEtMi40IDAtMy4zIDIuMi01LjQgNS4yLTUuNFoiLz48L3N2Zz4=">
     </a>
   </div>
 

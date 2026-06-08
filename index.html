@@ -999,7 +999,10 @@
         }
 
         const html = await response.text();
-        document.getElementById("header-placeholder").innerHTML = html;
+        const headerPlaceholder = document.getElementById("header-placeholder");
+        headerPlaceholder.innerHTML = html;
+
+        initHeaderMenu();
       } catch (error) {
         console.error("تعذر تحميل الشريط العلوي:", error);
       }
@@ -1020,11 +1023,73 @@
       }
     }
 
+    function initHeaderMenu() {
+      const header = document.querySelector(".site-header");
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      if (!header || !menuToggle || !navLinks) return;
+
+      if (menuToggle.dataset.ready === "true") return;
+      menuToggle.dataset.ready = "true";
+
+      function openMenu() {
+        navLinks.classList.add("active");
+        menuToggle.classList.add("active");
+        menuToggle.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu() {
+        navLinks.classList.remove("active");
+        menuToggle.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+
+      function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (navLinks.classList.contains("active")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      }
+
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.addEventListener("click", toggleMenu);
+
+      navLinks.addEventListener("click", function (event) {
+        event.stopPropagation();
+      });
+
+      navLinks.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", closeMenu);
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!event.target.closest(".site-header")) {
+          closeMenu();
+        }
+      });
+
+      window.addEventListener("scroll", closeMenu);
+
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 980) {
+          closeMenu();
+        }
+      });
+    }
+
     function initProductSliders() {
       const sliders = document.querySelectorAll("[data-product-slider]");
       const duration = 10000;
 
       sliders.forEach(function (slider) {
+        if (slider.dataset.ready === "true") return;
+        slider.dataset.ready = "true";
+
         const slides = slider.querySelectorAll(".product-media-slide");
         const dots = slider.querySelectorAll(".product-dot");
 
@@ -1050,9 +1115,13 @@
       });
     }
 
-    loadHeader();
-    loadFooter();
-    initProductSliders();
+    async function initPage() {
+      await loadHeader();
+      await loadFooter();
+      initProductSliders();
+    }
+
+    initPage();
 
     function sendQuote(event) {
       event.preventDefault();
